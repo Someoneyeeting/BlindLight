@@ -1,3 +1,52 @@
-[gd_scene format=3 uid="uid://bxf5f6x4j8oly"]
+[gd_scene load_steps=8 format=3 uid="uid://bxf5f6x4j8oly"]
+
+[ext_resource type="Texture2D" uid="uid://bcmsivk1jtk72" path="res://caster.png" id="1_hxyu5"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://player.tscn" id="1_np058"]
+[ext_resource type="Texture2D" uid="uid://cedwafr5m4hxg" path="res://light.png" id="3_ajla2"]
+[ext_resource type="Shader" path="res://light.gdshader" id="3_pncc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cja4a"]
+size = Vector2(456, 20)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qqeh1"]
+polygon = PackedVector2Array(431, 523, 889, 523, 889, 544, 431, 544)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qd4pq"]
+shader = ExtResource("3_pncc5")
+shader_parameter/angle = 0.605
+shader_parameter/range = 1.07
 
 [node name="Node2D" type="Node2D"]
+
+[node name="back2" type="Sprite2D" parent="."]
+z_index = -720
+position = Vector2(625, 409)
+scale = Vector2(40.0625, 26.5625)
+texture = ExtResource("1_hxyu5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(660, 533)
+shape = SubResource("RectangleShape2D_cja4a")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_qqeh1")
+
+[node name="Player" parent="." instance=ExtResource("1_np058")]
+position = Vector2(497, 456)
+speed = 250.0
+grav = 10.405
+jumpheight = 320.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+z_index = 20
+rotation = 0.531601
+shadow_enabled = true
+texture = ExtResource("3_ajla2")
+
+[node name="back" type="Sprite2D" parent="Player/PointLight2D"]
+show_behind_parent = true
+z_index = -1
+material = SubResource("ShaderMaterial_qd4pq")
+texture = ExtResource("3_ajla2")
