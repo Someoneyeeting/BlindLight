@@ -5,8 +5,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ivyre"]
 shader = ExtResource("2_amns2")
-shader_parameter/angle = 0.605
-shader_parameter/range = 1.07
+shader_parameter/angle = 0.72
+shader_parameter/range = 0.975
+shader_parameter/intens = 1.695
+shader_parameter/off = 0.035
 
 [node name="flashlight" type="Node2D"]
 
@@ -14,9 +16,11 @@ shader_parameter/range = 1.07
 z_index = 20
 shadow_enabled = true
 texture = ExtResource("1_7ey7q")
+texture_scale = 3.0
 
 [node name="back" type="Sprite2D" parent="."]
 show_behind_parent = true
 z_index = -1
 material = SubResource("ShaderMaterial_ivyre")
+scale = Vector2(2, 2)
 texture = ExtResource("1_7ey7q")
