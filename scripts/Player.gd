@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = lerp(velocity.x,(Input.get_action_strength("right") - Input.get_action_strength("left")) * speed,0.2)
 	
+	$flashlight.look_at(get_global_mouse_position())
 	
 	move_and_slide()
 	

@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://c8f3pp5fdkspv"]
+[gd_scene load_steps=4 format=3 uid="uid://c8f3pp5fdkspv"]
+
+[ext_resource type="Texture2D" uid="uid://cedwafr5m4hxg" path="res://light.png" id="1_7ey7q"]
+[ext_resource type="Shader" path="res://light.gdshader" id="2_amns2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivyre"]
+shader = ExtResource("2_amns2")
+shader_parameter/angle = 0.605
+shader_parameter/range = 1.07
 
 [node name="flashlight" type="Node2D"]
+
+[node name="light" type="PointLight2D" parent="."]
+z_index = 20
+shadow_enabled = true
+texture = ExtResource("1_7ey7q")
+
+[node name="back" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+material = SubResource("ShaderMaterial_ivyre")
+texture = ExtResource("1_7ey7q")
