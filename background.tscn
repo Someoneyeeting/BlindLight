@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://wwhaq207tyyt"]
+
+[ext_resource type="Shader" path="res://background.gdshader" id="1_mbeyf"]
+[ext_resource type="Texture2D" uid="uid://dsldri0bv1phi" path="res://Untitled.png" id="2_qnr86"]
+[ext_resource type="Script" path="res://back2.gd" id="3_iqsw6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7d0c"]
+shader = ExtResource("1_mbeyf")
+shader_parameter/lighton = false
+
+[node name="back2" type="Sprite2D"]
+z_index = -720
+material = SubResource("ShaderMaterial_t7d0c")
+position = Vector2(625, 409)
+scale = Vector2(1.95034, 2.2303)
+texture = ExtResource("2_qnr86")
+script = ExtResource("3_iqsw6")

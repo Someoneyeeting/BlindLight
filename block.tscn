@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://duuw5j1v4etbg"]
+[gd_scene load_steps=4 format=3 uid="uid://duuw5j1v4etbg"]
+
+[ext_resource type="Texture2D" uid="uid://bcmsivk1jtk72" path="res://caster.png" id="1_u07rj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cja4a"]
 size = Vector2(40, 40)
@@ -7,7 +9,10 @@ size = Vector2(40, 40)
 polygon = PackedVector2Array(-20, -20, -20, 20, 20, 20, 20, -20)
 
 [node name="block" type="StaticBody2D"]
-position = Vector2(576, 501)
+
+[node name="Caster" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_u07rj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cja4a")
