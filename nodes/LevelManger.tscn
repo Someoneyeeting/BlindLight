@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2v7ir5m071io"]
+
+[ext_resource type="Script" path="res://scripts/LevelManger.gd" id="1_r50tk"]
+[ext_resource type="AudioStream" uid="uid://cino1egptig23" path="res://audio/switchon.wav" id="2_wh1vy"]
+[ext_resource type="AudioStream" uid="uid://dl3c2ekync512" path="res://audio/switchoff.wav" id="3_qkx57"]
+
+[node name="LevelManger" type="Node2D"]
+script = ExtResource("1_r50tk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 985
+offset_left = -54.0
+offset_top = -41.0
+offset_right = -14.0
+offset_bottom = -1.0
+scale = Vector2(32.9194, 23.1865)
+color = Color(0, 0, 0, 1)
+
+[node name="on" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wh1vy")
+volume_db = 3.0
+
+[node name="off" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qkx57")
+volume_db = 3.0
+
+[node name="restart" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]

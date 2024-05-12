@@ -11,24 +11,41 @@
 [node name="back2" parent="." instance=ExtResource("1_j0ufy")]
 
 [node name="block" parent="." instance=ExtResource("2_p4wjs")]
-position = Vector2(580, 677)
+position = Vector2(580, 832)
 scale = Vector2(36.0496, 9.81631)
 
 [node name="block2" parent="." instance=ExtResource("2_p4wjs")]
-position = Vector2(1123, 242)
+position = Vector2(1123, 397)
 scale = Vector2(2.82534, 2.88209)
 
 [node name="block3" parent="." instance=ExtResource("2_p4wjs")]
-position = Vector2(1244, 424)
+position = Vector2(1244, 579)
 scale = Vector2(2.82534, 2.88209)
 
 [node name="Player" parent="." instance=ExtResource("3_ywme1")]
-position = Vector2(44, 413)
-jumpheight = 320.0
+position = Vector2(44, 568)
 
 [node name="flashlight" parent="." instance=ExtResource("4_yjjt2")]
-position = Vector2(1123, 300)
+position = Vector2(1123, 455)
 rotation = 1.5708
 
 [node name="Switch" parent="." instance=ExtResource("5_tqom8")]
-position = Vector2(1178, 442)
+position = Vector2(1178, 597)
+
+[node name="block4" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(0, 300)
+scale = Vector2(1, 26.44)
+
+[node name="block5" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(1200, 360)
+scale = Vector2(1, 26.44)
+
+[node name="block6" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(530, 0)
+rotation = -1.57079
+scale = Vector2(1, 47.8)
+
+[node name="block7" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(600, 800)
+rotation = -1.57079
+scale = Vector2(1, 47.8)

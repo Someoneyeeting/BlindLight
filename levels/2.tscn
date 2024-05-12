@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ek2m4yi5j2h1"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_kt237"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_boveo"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_pbdfq"]
+
+[node name="2" type="Node2D"]
+
+[node name="back2" parent="." instance=ExtResource("1_kt237")]
+position = Vector2(613, 382)
+
+[node name="block" parent="." instance=ExtResource("2_boveo")]
+position = Vector2(242, 249)
+scale = Vector2(22.08, 1)
+
+[node name="block2" parent="." instance=ExtResource("2_boveo")]
+position = Vector2(0, 386)
+scale = Vector2(1, 24.16)
+
+[node name="block3" parent="." instance=ExtResource("2_boveo")]
+position = Vector2(1200, 402)
+scale = Vector2(1, 24.16)
+
+[node name="block4" parent="." instance=ExtResource("2_boveo")]
+position = Vector2(595, 0)
+rotation = 1.5708
+scale = Vector2(1, 39.12)
+
+[node name="block5" parent="." instance=ExtResource("2_boveo")]
+position = Vector2(611, 800)
+rotation = 1.5708
+scale = Vector2(1, 39.12)
+
+[node name="Player" parent="." instance=ExtResource("3_pbdfq")]
+position = Vector2(79, 180)

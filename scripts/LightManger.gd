@@ -15,21 +15,15 @@ func _ready() -> void:
 
 func turn_on():
 	light = true
-	player.hide()
+	player.queue_free()
+	player = null
 	background.material.set_shader_parameter("lighton",true)
 	for i in get_tree().get_nodes_in_group("light"):
-		if(i.visible):
-			onlight.append(i)
-			i.hide()
+		i.queue_free()
 
 func turn_off():
 	light = false
-	player.show()
 	background.material.set_shader_parameter("lighton",false)
-	
-	for i in onlight:
-		i.show()
-	
 	onlight.clear()
 
 func switch():

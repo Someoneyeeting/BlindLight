@@ -5,32 +5,22 @@
 [ext_resource type="Shader" path="res://light.gdshader" id="3_jhw0g"]
 [ext_resource type="Shader" path="res://player.gdshader" id="3_qalwy"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0q5j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pduo4"]
+shader = ExtResource("3_qalwy")
+shader_parameter/skew = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_los1f"]
 shader = ExtResource("3_jhw0g")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.42
 shader_parameter/intens = 13.96
 shader_parameter/off = 0.035
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pduo4"]
-shader = ExtResource("3_qalwy")
-shader_parameter/skew = 0.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feq21"]
 size = Vector2(40, 40)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8lh5v")
-jumpheight = 60.0
-
-[node name="flashlight" parent="." instance=ExtResource("2_63uuq")]
-
-[node name="light" parent="flashlight" index="0"]
-range_item_cull_mask = 1
-
-[node name="back" parent="flashlight" index="1"]
-light_mask = 1
-material = SubResource("ShaderMaterial_k0q5j")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 0
@@ -42,12 +32,21 @@ offset_bottom = 20.0
 pivot_offset = Vector2(20, 20)
 color = Color(0.7, 0.7, 0.7, 1)
 
+[node name="flashlight" parent="." instance=ExtResource("2_63uuq")]
+
+[node name="light" parent="flashlight" index="0"]
+range_item_cull_mask = 1
+
+[node name="back" parent="flashlight" index="1"]
+light_mask = 1
+material = SubResource("ShaderMaterial_los1f")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_feq21")
 
 [node name="startTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.7
 one_shot = true
 autostart = true
 

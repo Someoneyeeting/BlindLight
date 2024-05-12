@@ -2,14 +2,19 @@ extends Node
 
 
 signal switchon
+signal restart
 var curlevel = 0
 var waitingnext = false
 
 func switch_level(level):
 	get_tree().change_scene_to_file("res://levels/" + str(level) + ".tscn")
+	$off.play()
 
 func reload_level():
-	switch_level(curlevel)
+	if($restart.time_left <= 0):
+		$ColorRect.show()
+		$on.play()
+		$restart.start()
 
 func next_level():
 	curlevel += 1
@@ -18,6 +23,7 @@ func next_level():
 
 func _switch_on():
 	waitingnext = true
+	$on.play()
 	LightManger.turn_on()
 
 func _input(event: InputEvent) -> void:
@@ -30,3 +36,9 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	#reload_level()
 	switchon.connect(_switch_on)
+	restart.connect(reload_level)
+
+
+func _on_restart_timeout() -> void:
+	$ColorRect.hide()
+	switch_level(curlevel)
