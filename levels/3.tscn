@@ -52,7 +52,7 @@ void vertex() {
 void fragment() {
 	float maxdist = max(abs(COLOR.r - COLOR.b),max(abs(COLOR.b - COLOR.g),abs(COLOR.r - COLOR.g)));
 	
-	if(maxdist > 0.13){
+	if(maxdist > 0.1){
 		COLOR.rgb = vec3(1.f);
 	}
 	else{
@@ -368,6 +368,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
 
 [node name="Fnm04-Top1TidalWaveByOniLink[mGjVtWeyLg-916x515-0m41s]" type="Sprite2D" parent="."]
 visible = false
