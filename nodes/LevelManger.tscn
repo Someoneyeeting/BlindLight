@@ -19,11 +19,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="on" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wh1vy")
-volume_db = 3.0
+volume_db = 20.0
 
 [node name="off" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qkx57")
-volume_db = 3.0
+volume_db = 20.0
 
 [node name="restart" type="Timer" parent="."]
 wait_time = 0.4

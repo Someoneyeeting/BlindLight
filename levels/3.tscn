@@ -1,9 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctll0rfpjxdyl"]
+[gd_scene load_steps=20 format=3 uid="uid://ctll0rfpjxdyl"]
 
+[ext_resource type="Script" path="res://scripts/tidalwave.gd" id="1_jknix"]
 [ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_jsx22"]
 [ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_1pr6x"]
+[ext_resource type="Shader" path="res://background.gdshader" id="2_qog1l"]
 [ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_re5w4"]
 [ext_resource type="Texture2D" uid="uid://ep714boceokf" path="res://tidal wave.png" id="4_etnre"]
+[ext_resource type="AudioStream" uid="uid://b7ix6jq1tthvs" path="res://tidalwave.mp3" id="6_aaxa2"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="6_cn2pq"]
+[ext_resource type="Texture2D" uid="uid://cpwogqkwya0yn" path="res://fnm04 - TOP 1 Tidal Wave by OniLink [mGJVt_weyLg - 916x515 - 0m41s].png" id="7_3vesh"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="10_eotfe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6if6a"]
+shader = ExtResource("2_qog1l")
+shader_parameter/lighton = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5pi1"]
+size = Vector2(67.8134, 101.21)
 
 [sub_resource type="Shader" id="Shader_rwdml"]
 code = "shader_type canvas_item;
@@ -55,33 +68,261 @@ void light() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_226e3"]
 shader = SubResource("Shader_jonrb")
 
+[sub_resource type="Animation" id="Animation_wnpth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TidalWave2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-603, 572)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TidalWave:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1947, 263)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TidalWave:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TidalWave2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1131, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D/Node2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tanuh"]
+resource_name = "tidalwaave"
+length = 3.6
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 38.4241,
+"stream": ExtResource("6_aaxa2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TidalWave2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2.3, 3.6),
+"transitions": PackedFloat32Array(1, 0.31864, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-602.805, 571.733), Vector2(-602.805, 571.733), Vector2(643, 571.733), Vector2(643, 571.733), Vector2(-603.085, 571.733)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TidalWave:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.3, 3.6),
+"transitions": PackedFloat32Array(0.31864, 0.297302, 1, 1),
+"update": 0,
+"values": [Vector2(1947.19, 262.733), Vector2(622, 262.733), Vector2(622, 262.733), Vector2(-624.085, 262.733)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TidalWave:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(0.554785, 0.5, 0.366021),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TidalWave2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(0.554785, 0.5, 0.366021),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1331, 0), Vector2(1331, 0), Vector2(78, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"lighton"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D/Node2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.9, 3.5),
+"transitions": PackedFloat32Array(1, 1.86607, -1.56917),
+"update": 0,
+"values": [Vector2(0, 77.7827), Vector2(0, 77.7827), Vector2(0, -28.5732)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4yox"]
+_data = {
+"RESET": SubResource("Animation_wnpth"),
+"tidalwaave": SubResource("Animation_tanuh")
+}
+
 [node name="3" type="Node2D"]
 position = Vector2(-67, -44)
+script = ExtResource("1_jknix")
 
 [node name="back2" parent="." instance=ExtResource("1_jsx22")]
+material = SubResource("ShaderMaterial_6if6a")
 position = Vector2(673, 424)
 
-[node name="block" parent="." instance=ExtResource("2_1pr6x")]
+[node name="level" type="Node2D" parent="."]
+
+[node name="block" parent="level" instance=ExtResource("2_1pr6x")]
 position = Vector2(80, 478)
 scale = Vector2(11.8, 1)
 
-[node name="block2" parent="." instance=ExtResource("2_1pr6x")]
+[node name="block7" parent="level" instance=ExtResource("2_1pr6x")]
+position = Vector2(1200.71, 463.713)
+scale = Vector2(11.8, 1)
+
+[node name="block9" parent="level" instance=ExtResource("2_1pr6x")]
+position = Vector2(1489.94, 390.61)
+scale = Vector2(11.8, 3.68)
+
+[node name="block8" parent="level" instance=ExtResource("2_1pr6x")]
+position = Vector2(1380.81, 261.356)
+scale = Vector2(11.8, 1)
+
+[node name="block2" parent="level" instance=ExtResource("2_1pr6x")]
 position = Vector2(449, 479)
 
-[node name="block3" parent="." instance=ExtResource("2_1pr6x")]
+[node name="block3" parent="level" instance=ExtResource("2_1pr6x")]
 position = Vector2(561, 479)
 
-[node name="block4" parent="." instance=ExtResource("2_1pr6x")]
+[node name="block4" parent="level" instance=ExtResource("2_1pr6x")]
 position = Vector2(657, 515)
 
-[node name="block5" parent="." instance=ExtResource("2_1pr6x")]
+[node name="block5" parent="level" instance=ExtResource("2_1pr6x")]
 position = Vector2(745, 479)
 
-[node name="block6" parent="." instance=ExtResource("2_1pr6x")]
+[node name="block6" parent="level" instance=ExtResource("2_1pr6x")]
 position = Vector2(841, 479)
 
-[node name="Player" parent="." instance=ExtResource("3_re5w4")]
-position = Vector2(94, 371)
+[node name="Player" parent="level" instance=ExtResource("3_re5w4")]
+position = Vector2(124.919, 387.649)
+
+[node name="flashlight" parent="level" instance=ExtResource("6_cn2pq")]
+position = Vector2(1200.9, 286.951)
+rotation = 1.57079
+
+[node name="block10" parent="level" instance=ExtResource("2_1pr6x")]
+position = Vector2(62.9117, 430.627)
+scale = Vector2(1, 24.16)
+
+[node name="block11" parent="level" instance=ExtResource("2_1pr6x")]
+position = Vector2(1262.91, 446.627)
+scale = Vector2(1, 24.16)
+
+[node name="block12" parent="level" instance=ExtResource("2_1pr6x")]
+position = Vector2(657.912, 44.6274)
+rotation = 1.5708
+scale = Vector2(1, 39.12)
+
+[node name="Switch" parent="level" instance=ExtResource("10_eotfe")]
+position = Vector2(1235.88, 406.67)
+
+[node name="Area2D" type="Area2D" parent="level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level/Area2D"]
+position = Vector2(966.075, 391.194)
+shape = SubResource("RectangleShape2D_s5pi1")
 
 [node name="TidalWave3" type="Sprite2D" parent="."]
 visible = false
@@ -97,6 +338,15 @@ texture = ExtResource("4_etnre")
 region_enabled = true
 region_rect = Rect2(0, 40.525, 917, 190.58)
 
+[node name="ColorRect" type="ColorRect" parent="TidalWave"]
+show_behind_parent = true
+offset_left = -458.169
+offset_top = -170.0
+offset_right = -407.029
+offset_bottom = -95.0
+scale = Vector2(17.915, 3.917)
+color = Color(0, 0, 0, 1)
+
 [node name="TidalWave2" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_226e3")
 position = Vector2(-603, 572)
@@ -111,3 +361,65 @@ offset_top = 61.836
 offset_right = -586.697
 offset_bottom = 101.836
 scale = Vector2(27.1561, 3.72695)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m4yox")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Fnm04-Top1TidalWaveByOniLink[mGjVtWeyLg-916x515-0m41s]" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(606, 438)
+scale = Vector2(1.43929, 1.43929)
+texture = ExtResource("7_3vesh")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1131, 0)
+
+[node name="block9" parent="Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(367, 683)
+rotation = 0.785397
+scale = Vector2(4.94638, 10.7226)
+
+[node name="block10" parent="Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(1062, 175)
+rotation = 2.35619
+scale = Vector2(4.94638, 10.7226)
+
+[node name="block11" parent="Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(958, 484)
+rotation = 2.35619
+scale = Vector2(4.94638, 7.01736)
+
+[node name="block13" parent="Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(898, 700)
+rotation = 2.35619
+scale = Vector2(4.94638, 7.01736)
+
+[node name="block12" parent="Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(941, 599)
+rotation = 3.92699
+scale = Vector2(4.94638, 9.61951)
+
+[node name="Node2D" type="Node2D" parent="Node2D"]
+
+[node name="block8" parent="Node2D/Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(585, 356)
+rotation = -0.785397
+scale = Vector2(5.18421, 4.40862)
+
+[node name="block7" parent="Node2D/Node2D" instance=ExtResource("2_1pr6x")]
+position = Vector2(585, 199)
+rotation = 0.785397
+scale = Vector2(4.94638, 10.7226)
+
+[node name="block" parent="." instance=ExtResource("2_1pr6x")]
+visible = false
+position = Vector2(306.819, 421.435)
+collision_layer = 0
+
+[connection signal="body_entered" from="level/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="level/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

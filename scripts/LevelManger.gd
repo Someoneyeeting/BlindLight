@@ -10,10 +10,15 @@ func switch_level(level):
 	get_tree().change_scene_to_file("res://levels/" + str(level) + ".tscn")
 	$off.play()
 
+
+func darken():
+	$ColorRect.show()
+	$on.play()
+
 func reload_level():
 	if($restart.time_left <= 0):
-		$ColorRect.show()
-		$on.play()
+		darken()
+		darken()
 		$restart.start()
 
 func next_level():
