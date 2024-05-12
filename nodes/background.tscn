@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://background.gdshader" id="1_mbeyf"]
 [ext_resource type="Texture2D" uid="uid://dsldri0bv1phi" path="res://Untitled.png" id="2_qnr86"]
-[ext_resource type="Script" path="res://back2.gd" id="3_iqsw6"]
+[ext_resource type="Script" path="res://scripts/back2.gd" id="3_iqsw6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7d0c"]
 shader = ExtResource("1_mbeyf")

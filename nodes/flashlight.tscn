@@ -1,30 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8f3pp5fdkspv"]
 
-[ext_resource type="Texture2D" uid="uid://cedwafr5m4hxg" path="res://light.png" id="1_7ey7q"]
-[ext_resource type="Script" path="res://flashlight.gd" id="1_dqpdp"]
-[ext_resource type="Shader" path="res://light.gdshader" id="2_amns2"]
+[ext_resource type="Script" path="res://scripts/flashlight.gd" id="1_71mvd"]
+[ext_resource type="Texture2D" uid="uid://cedwafr5m4hxg" path="res://light.png" id="2_aufei"]
+[ext_resource type="Shader" path="res://light.gdshader" id="3_rpoei"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivyre"]
-shader = ExtResource("2_amns2")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2ojt"]
+shader = ExtResource("3_rpoei")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.975
 shader_parameter/intens = 1.695
 shader_parameter/off = 0.035
 
 [node name="flashlight" type="Node2D" groups=["light"]]
-script = ExtResource("1_dqpdp")
+script = ExtResource("1_71mvd")
 
 [node name="light" type="PointLight2D" parent="."]
 z_index = 20
 range_item_cull_mask = 2
 shadow_enabled = true
-texture = ExtResource("1_7ey7q")
+texture = ExtResource("2_aufei")
 texture_scale = 3.0
 
 [node name="back" type="Sprite2D" parent="."]
 show_behind_parent = true
 light_mask = 2
 z_index = -1
-material = SubResource("ShaderMaterial_ivyre")
+material = SubResource("ShaderMaterial_j2ojt")
 scale = Vector2(2, 2)
-texture = ExtResource("1_7ey7q")
+texture = ExtResource("2_aufei")

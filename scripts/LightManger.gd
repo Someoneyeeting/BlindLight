@@ -7,6 +7,12 @@ var light := false
 var onlight = []
 
 
+func clearlights():
+	onlight.clear()
+
+func _ready() -> void:
+	LevelManger.switchon.connect(clearlights)
+
 func turn_on():
 	light = true
 	player.hide()

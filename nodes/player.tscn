@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsejhuhyw0cqr"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_8lh5v"]
-[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://flashlight.tscn" id="2_63uuq"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="2_63uuq"]
 [ext_resource type="Shader" path="res://light.gdshader" id="3_jhw0g"]
 [ext_resource type="Shader" path="res://player.gdshader" id="3_qalwy"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5h1v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0q5j"]
 shader = ExtResource("3_jhw0g")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.42
@@ -30,9 +30,10 @@ range_item_cull_mask = 1
 
 [node name="back" parent="flashlight" index="1"]
 light_mask = 1
-material = SubResource("ShaderMaterial_a5h1v")
+material = SubResource("ShaderMaterial_k0q5j")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
 material = SubResource("ShaderMaterial_pduo4")
 offset_left = -20.0
 offset_top = -20.0
@@ -44,5 +45,10 @@ color = Color(0.7, 0.7, 0.7, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_feq21")
+
+[node name="startTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
 
 [editable path="flashlight"]

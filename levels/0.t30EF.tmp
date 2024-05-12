@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxf5f6x4j8oly"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_j0ufy"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_p4wjs"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_ywme1"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_yjjt2"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_tqom8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="back2" parent="." instance=ExtResource("1_j0ufy")]
+
+[node name="block" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(580, 677)
+scale = Vector2(36.0496, 9.81631)
+
+[node name="block2" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(1123, 242)
+scale = Vector2(2.82534, 2.88209)
+
+[node name="block3" parent="." instance=ExtResource("2_p4wjs")]
+position = Vector2(1244, 424)
+scale = Vector2(2.82534, 2.88209)
+
+[node name="Player" parent="." instance=ExtResource("3_ywme1")]
+position = Vector2(44, 413)
+jumpheight = 320.0
+
+[node name="flashlight" parent="." instance=ExtResource("4_yjjt2")]
+position = Vector2(1123, 300)
+rotation = 1.5708
+
+[node name="Switch" parent="." instance=ExtResource("5_tqom8")]
+position = Vector2(1178, 442)

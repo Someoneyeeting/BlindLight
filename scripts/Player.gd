@@ -2,12 +2,19 @@ extends CharacterBody2D
 
 
 
-@export var speed :float=30.
-@export var grav :float= 9.8
-@export var jumpheight :float = 30
+@export var speed :float= 250
+@export var grav :float= 10.405
+@export var jumpheight :float = 320
 var flashlighton = true
-var lightrange = 0.975
-var lightintense = 0.975
+
+var lightrangemin = 0.62
+var lightrangemax = 0.9
+var lightrange = lightrangemin
+
+var lightintensemin = 3.96
+var lightintensemax = 2.7
+var lightintense = lightintensemin
+
 var lightbattery :float= 1
 var wasinair = false
 
@@ -15,6 +22,8 @@ var wasinair = false
 func _ready() -> void:
 	LightManger.player = self
 	up_direction = Vector2.UP
+	$flashlight.look_at(get_global_mouse_position())
+	move_and_collide(Vector2(0,1000))
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -27,8 +36,8 @@ func _physics_process(delta: float) -> void:
 		wasinair = true
 	
 	if(Input.is_action_just_pressed("rclick")):
-		LightManger.switch()
-		#flashlighton = !flashlighton
+		#LightManger.switch()
+		flashlighton = !flashlighton
 	$flashlight.visible = flashlighton
 	
 	
@@ -57,7 +66,8 @@ func _physics_process(delta: float) -> void:
 		$ColorRect.scale.x = (-abs(velocity.y)/3000 + 1.0)
 	else:
 		if(wasinair):
-			$ColorRect.scale = Vector2(1.1,0.8)
+			if($startTimer.time_left == 0):
+				$ColorRect.scale = Vector2(1.1,0.8)
 		$ColorRect.scale.y = lerp($ColorRect.scale.y,1.0,0.4)
 	
 	$ColorRect.material.set_shader_parameter("skew",-velocity.x / speed * 4)
