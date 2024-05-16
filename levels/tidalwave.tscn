@@ -368,7 +368,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
 
 [node name="Fnm04-Top1TidalWaveByOniLink[mGjVtWeyLg-916x515-0m41s]" type="Sprite2D" parent="."]
 visible = false

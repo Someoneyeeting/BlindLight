@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ek2m4yi5j2h1"]
+[gd_scene load_steps=9 format=3 uid="uid://ek2m4yi5j2h1"]
 
 [ext_resource type="Script" path="res://scripts/2.gd" id="1_65o71"]
 [ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_kt237"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_pbdfq"]
 [ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_eucb1"]
 [ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_gfl5e"]
+[ext_resource type="FontFile" uid="uid://cehjcvvny7v5t" path="res://Roboto-Regular.ttf" id="7_hle3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvguc"]
 size = Vector2(121, 146)
@@ -14,7 +15,7 @@ size = Vector2(121, 146)
 script = ExtResource("1_65o71")
 
 [node name="back2" parent="." instance=ExtResource("1_kt237")]
-position = Vector2(613, 382)
+position = Vector2(613, 327.999)
 
 [node name="block" parent="." instance=ExtResource("2_boveo")]
 position = Vector2(224, 232)
@@ -29,17 +30,16 @@ position = Vector2(529, 419)
 scale = Vector2(8.88, 0.6)
 
 [node name="block11" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(414, 637)
-scale = Vector2(21.2921, 0.6)
+position = Vector2(427, 545)
+scale = Vector2(9.99774, 0.606774)
+
+[node name="block13" parent="." instance=ExtResource("2_boveo")]
+position = Vector2(982, 546)
+scale = Vector2(10.9177, 0.606774)
 
 [node name="block14" parent="." instance=ExtResource("2_boveo")]
 position = Vector2(-16, 418)
 scale = Vector2(8.88, 0.6)
-
-[node name="block13" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(827, 528)
-rotation = 1.57079
-scale = Vector2(5.88, 0.623)
 
 [node name="block12" parent="." instance=ExtResource("2_boveo")]
 position = Vector2(364, 327)
@@ -62,10 +62,12 @@ scale = Vector2(1, 39.12)
 [node name="Player" parent="." instance=ExtResource("3_pbdfq")]
 position = Vector2(79, 180)
 scale = Vector2(0.60464, 0.60464)
+metadata/_edit_lock_ = true
 
 [node name="flashlight" parent="." instance=ExtResource("4_eucb1")]
 position = Vector2(98, 247)
 rotation = 1.57079
+metadata/_edit_lock_ = true
 
 [node name="Switch" parent="." instance=ExtResource("5_gfl5e")]
 position = Vector2(67, 371)
@@ -100,5 +102,17 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(449.5, 327)
 shape = SubResource("RectangleShape2D_cvguc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 274.0
+offset_top = 144.0
+offset_right = 418.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("7_hle3x")
+theme_override_font_sizes/font_size = 62
+text = "Press 'R' to restart"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

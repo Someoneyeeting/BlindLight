@@ -8,11 +8,11 @@ extends CharacterBody2D
 
 var flashlighton = true
 
-var lightrangemin = 0.62
+var lightrangemin :float= 0.72
 var lightrangemax = 0.9
 var lightrange = lightrangemin
 
-var lightintensemin = 3.96
+var lightintensemin :float= 4
 var lightintensemax = 2.7
 var lightintense = lightintensemin
 
