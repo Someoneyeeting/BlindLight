@@ -32,7 +32,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	
-	if($cyote.time_left && $buffer.time_left):
+	if($cyote.time_left && $buffer.time_left && not $startTimer.time_left):
 		velocity.y = -jumpheight
 		$cyote.stop()
 		$buffer.stop()
@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		wasinair = true
 	
 	if(Input.is_action_just_pressed("rclick")):
-		#LightManger.switch()
+		$switch.play()
 		flashlighton = !flashlighton
 	$flashlight.visible = flashlighton
 	
@@ -55,17 +55,18 @@ func _physics_process(delta: float) -> void:
 	$flashlight.get_node("back").material.set_shader_parameter("range",lightrange * min(1.0,lightbattery))
 	$flashlight.get_node("back").material.set_shader_parameter("intens",lightintense * min(1.0,lightbattery))
 	if(flashlighton):
+		if(not $lightbuzz.playing):
+			$lightbuzz.play()
 		lightbattery -= delta / 500
 		if(Input.is_action_pressed("lclick")):
 			lightrange = lerp(lightrange,lightrangemax,0.3)
 			lightintense = lerp(lightintense,lightintensemax,0.3)
 			lightbattery -= delta / 70
-			if(not $lightbuzz.playing):
-				$lightbuzz.play()
+			$lightbuzz.volume_db = -60
 		else:
 			lightrange = lerp(lightrange,lightrangemin,0.3)
 			lightintense = lerp(lightintense,lightintensemin,0.3)
-			$lightbuzz.stop()
+			$lightbuzz.volume_db = -70
 	else:
 		$lightbuzz.stop()
 	

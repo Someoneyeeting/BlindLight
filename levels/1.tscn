@@ -24,8 +24,17 @@ position = Vector2(1160, 722)
 scale = Vector2(6.28, 8.16)
 
 [node name="block4" parent="." instance=ExtResource("2_qdxgw")]
-position = Vector2(1210, 311)
-scale = Vector2(6.40273, 3.60273)
+position = Vector2(1210, 147)
+scale = Vector2(6.40273, 11.9627)
+
+[node name="block6" parent="." instance=ExtResource("2_qdxgw")]
+position = Vector2(679, -110)
+scale = Vector2(61.0827, 7.40273)
+
+[node name="block7" parent="." instance=ExtResource("2_qdxgw")]
+position = Vector2(-117, 348)
+rotation = 1.57079
+scale = Vector2(61.0827, 7.40273)
 
 [node name="flashlight" parent="." instance=ExtResource("3_q2t4b")]
 position = Vector2(1189, 386)
