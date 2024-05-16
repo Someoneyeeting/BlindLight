@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsejhuhyw0cqr"]
+[gd_scene load_steps=9 format=3 uid="uid://bsejhuhyw0cqr"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_8lh5v"]
 [ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="2_63uuq"]
 [ext_resource type="Shader" path="res://light.gdshader" id="3_jhw0g"]
 [ext_resource type="Shader" path="res://player.gdshader" id="3_qalwy"]
+[ext_resource type="AudioStream" uid="uid://dmcuji7idsc1i" path="res://audio/buzz.wav" id="5_bij8u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pduo4"]
 shader = ExtResource("3_qalwy")
 shader_parameter/skew = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_spr7f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fdfj"]
 shader = ExtResource("3_jhw0g")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.42
@@ -20,6 +21,7 @@ shader_parameter/off = 0.035
 size = Vector2(40, 40)
 
 [node name="Player" type="CharacterBody2D"]
+floor_snap_length = 5.0
 script = ExtResource("1_8lh5v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -39,7 +41,7 @@ range_item_cull_mask = 1
 
 [node name="back" parent="flashlight" index="1"]
 light_mask = 1
-material = SubResource("ShaderMaterial_spr7f")
+material = SubResource("ShaderMaterial_2fdfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -49,5 +51,9 @@ shape = SubResource("RectangleShape2D_feq21")
 wait_time = 0.7
 one_shot = true
 autostart = true
+
+[node name="lightbuzz" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bij8u")
+volume_db = -60.0
 
 [editable path="flashlight"]

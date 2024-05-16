@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://3u55mlfn6upx"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_hl5x7"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_rss76"]
+[ext_resource type="PackedScene" uid="uid://de1ypnocqhym3" path="res://nodes/platform.tscn" id="3_vudro"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="4_20qqj"]
+
+[node name="testlevel" type="Node2D"]
+position = Vector2(-80, -27)
+
+[node name="back2" parent="." instance=ExtResource("1_hl5x7")]
+visible = false
+position = Vector2(685, 411)
+
+[node name="block" parent="." instance=ExtResource("2_rss76")]
+position = Vector2(142, 728)
+scale = Vector2(7.06782, 7.97769)
+
+[node name="block2" parent="." instance=ExtResource("2_rss76")]
+position = Vector2(1239, 747)
+scale = Vector2(7.06782, 7.97769)
+
+[node name="Platform" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_vudro")]
+position = Vector2(418, 679)
+target = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(948, 679)
+
+[node name="Player" parent="." instance=ExtResource("4_20qqj")]
+position = Vector2(164, 472)
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -72)

@@ -8,15 +8,15 @@ extends CharacterBody2D
 
 var flashlighton = true
 
-var lightrangemin :float= 0.72
-var lightrangemax = 0.9
+var lightrangemin :float= 0.62
+var lightrangemax = 0.85
 var lightrange = lightrangemin
 
-var lightintensemin :float= 4
+var lightintensemin :float= 4.3
 var lightintensemax = 2.7
 var lightintense = lightintensemin
 
-var lightbattery :float= 1
+var lightbattery :float= 1.5
 var wasinair = false
 
 
@@ -24,6 +24,8 @@ func _ready() -> void:
 	LightManger.player = self
 	up_direction = Vector2.UP
 	$flashlight.look_at(get_global_mouse_position())
+	lightrange = lightrangemin
+	lightintense = lightintensemin
 	move_and_collide(Vector2(0,100))
 	#$off.play()
 	
@@ -44,17 +46,22 @@ func _physics_process(delta: float) -> void:
 	$flashlight.visible = flashlighton
 	
 	
+	$flashlight.get_node("back").material.set_shader_parameter("range",lightrange * min(1.0,lightbattery))
+	$flashlight.get_node("back").material.set_shader_parameter("intens",lightintense * min(1.0,lightbattery))
 	if(flashlighton):
 		lightbattery -= delta / 500
-		$flashlight.get_node("back").material.set_shader_parameter("range",lightrange * lightbattery)
-		$flashlight.get_node("back").material.set_shader_parameter("intens",lightintense * lightbattery)
 		if(Input.is_action_pressed("lclick")):
-			lightrange = lerp(lightrange,0.9,0.3)
-			lightintense = lerp(lightintense,2.7,0.3)
-			lightbattery -= delta / 200
+			lightrange = lerp(lightrange,lightrangemax,0.3)
+			lightintense = lerp(lightintense,lightintensemax,0.3)
+			lightbattery -= delta / 150
+			if(not $lightbuzz.playing):
+				$lightbuzz.play()
 		else:
-			lightrange = lerp(lightrange,0.62,0.3)
-			lightintense = lerp(lightintense,3.96,0.3)
+			lightrange = lerp(lightrange,lightrangemin,0.3)
+			lightintense = lerp(lightintense,lightintensemin,0.3)
+			$lightbuzz.stop()
+	else:
+		$lightbuzz.stop()
 	
 	velocity.y += grav
 	
@@ -80,6 +87,9 @@ func _physics_process(delta: float) -> void:
 		wasinair = false
 	
 	move_and_slide()
+	
+	#if(position.y >= get_viewport_rect().size.y + 300):
+		#LevelManger.restart.emit()
 	
 	if(Input.is_action_just_pressed("restart")):
 		LevelManger.restart.emit()

@@ -5,11 +5,20 @@ signal switchon
 signal restart
 var curlevel = 0
 var waitingnext = false
+var platformdir = false
 
 func switch_level(level):
+	$platformtimer.start()
 	get_tree().change_scene_to_file("res://levels/" + str(level) + ".tscn")
 	$off.play()
 
+
+func get_platform_pos():
+	if(platformdir):
+		return 1 - $platformtimer.time_left/$platformtimer.wait_time
+	else:
+		return $platformtimer.time_left/$platformtimer.wait_time
+		
 
 func darken():
 	$ColorRect.show()
@@ -47,3 +56,12 @@ func _ready() -> void:
 func _on_restart_timeout() -> void:
 	$ColorRect.hide()
 	switch_level(curlevel)
+
+
+func _on_platformtimer_timeout() -> void:
+	$platformcooldown.start()
+
+
+func _on_platformcooldown_timeout() -> void:
+	platformdir = not platformdir
+	$platformtimer.start()

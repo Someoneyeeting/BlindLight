@@ -18,8 +18,8 @@ script = ExtResource("1_65o71")
 position = Vector2(613, 327.999)
 
 [node name="block" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(224, 232)
-scale = Vector2(30.9978, 0.614031)
+position = Vector2(295, 232)
+scale = Vector2(31.7578, 0.614031)
 
 [node name="block6" parent="." instance=ExtResource("2_boveo")]
 position = Vector2(1256, 422)
@@ -34,8 +34,8 @@ position = Vector2(427, 545)
 scale = Vector2(9.99774, 0.606774)
 
 [node name="block13" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(982, 546)
-scale = Vector2(10.9177, 0.606774)
+position = Vector2(1108, 546)
+scale = Vector2(17.1177, 0.606774)
 
 [node name="block14" parent="." instance=ExtResource("2_boveo")]
 position = Vector2(-16, 418)
@@ -51,7 +51,7 @@ position = Vector2(0, 386)
 scale = Vector2(1, 24.16)
 
 [node name="block3" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(1200, 402)
+position = Vector2(1280, 402)
 scale = Vector2(1, 24.16)
 
 [node name="block4" parent="." instance=ExtResource("2_boveo")]
@@ -83,12 +83,8 @@ rotation = 0.785397
 scale = Vector2(7.84674, 7.7336)
 
 [node name="block16" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(49, 518)
-scale = Vector2(4.56407, 4.56407)
-
-[node name="block17" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(30, 785)
-scale = Vector2(4.56407, 4.56407)
+position = Vector2(49, 656)
+scale = Vector2(4.56407, 11.7241)
 
 [node name="trap" parent="." instance=ExtResource("2_boveo")]
 visible = false

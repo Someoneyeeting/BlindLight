@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://de1ypnocqhym3"]
+
+[ext_resource type="Script" path="res://scripts/Platform.gd" id="1_dochg"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_rtdkr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hbneq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_311s1"]
+size = Vector2(40, 40)
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_dochg")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+scale = Vector2(4.36, 1)
+remote_path = NodePath("../Platform")
+update_rotation = false
+update_scale = false
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+scale = Vector2(4.36, 1)
+physics_material_override = SubResource("PhysicsMaterial_hbneq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_311s1")
+
+[node name="block" parent="Platform" instance=ExtResource("2_rtdkr")]
+scale = Vector2(1, 1)
+collision_layer = 0
