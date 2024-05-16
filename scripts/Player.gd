@@ -16,7 +16,7 @@ var lightintensemin :float= 4.3
 var lightintensemax = 2.7
 var lightintense = lightintensemin
 
-var lightbattery :float= 1.5
+var lightbattery :float= 1
 var wasinair = false
 
 
@@ -32,11 +32,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	
+	if($cyote.time_left && $buffer.time_left):
+		velocity.y = -jumpheight
+		$cyote.stop()
+		$buffer.stop()
+		
+	if(Input.is_action_just_pressed("jump")):
+		$buffer.start()
 	if(is_on_floor()):
+		$cyote.start()
 		if(velocity.y > 0):
 			velocity.y = 0
-		if(Input.is_action_just_pressed("jump")):
-			velocity.y = -jumpheight
 	else:
 		wasinair = true
 	
@@ -53,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_pressed("lclick")):
 			lightrange = lerp(lightrange,lightrangemax,0.3)
 			lightintense = lerp(lightintense,lightintensemax,0.3)
-			lightbattery -= delta / 150
+			lightbattery -= delta / 70
 			if(not $lightbuzz.playing):
 				$lightbuzz.play()
 		else:
@@ -88,8 +94,8 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	#if(position.y >= get_viewport_rect().size.y + 300):
-		#LevelManger.restart.emit()
+	if(position.y >= get_viewport_rect().size.y + 200):
+		LevelManger.restart.emit()
 	
 	if(Input.is_action_just_pressed("restart")):
 		LevelManger.restart.emit()
