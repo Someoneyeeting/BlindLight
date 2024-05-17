@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxf5f6x4j8oly"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_b25hb"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_5qkaa"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_5lfon"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_nbkuc"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_5vfav"]
+[ext_resource type="FontFile" uid="uid://cehjcvvny7v5t" path="res://Roboto-Regular.ttf" id="6_41dnv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="back2" parent="." instance=ExtResource("1_b25hb")]
+
+[node name="block" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(580, 832)
+scale = Vector2(36.0496, 9.81631)
+
+[node name="block2" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(1203, -3.99997)
+scale = Vector2(2.82534, 22.9221)
+
+[node name="block3" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(1324, 579)
+scale = Vector2(2.82534, 2.88209)
+
+[node name="Player" parent="." instance=ExtResource("3_5lfon")]
+position = Vector2(44, 568)
+
+[node name="flashlight" parent="." instance=ExtResource("4_nbkuc")]
+position = Vector2(1203, 455)
+rotation = 1.5708
+metadata/_edit_lock_ = true
+
+[node name="Switch" parent="." instance=ExtResource("5_5vfav")]
+position = Vector2(1258, 597)
+
+[node name="block4" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(0, 300)
+scale = Vector2(1, 26.44)
+
+[node name="block5" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(1280, 360)
+scale = Vector2(1, 26.44)
+
+[node name="block6" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(530, 0)
+rotation = -1.57079
+scale = Vector2(1, 47.8)
+
+[node name="block7" parent="." instance=ExtResource("2_5qkaa")]
+position = Vector2(600, 800)
+rotation = -1.57079
+scale = Vector2(1, 47.8)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 34.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("6_41dnv")
+theme_override_font_sizes/font_size = 50
+text = "Press 'Space' to proceed"

@@ -6,11 +6,18 @@ signal restart
 var curlevel = 0
 var waitingnext = false
 var platformdir = false
+var levels = [
+	"res://levels/intro.tscn",
+	"res://levels/jump.tscn",
+	"res://levels/troll.tscn",
+	"res://levels/platform.tscn"
+]
 
 func switch_level(level):
 	$platformtimer.start()
-	get_tree().change_scene_to_file("res://levels/" + str(level) + ".tscn")
+	get_tree().change_scene_to_file(levels[level])
 	$off.play()
+	$noise.stream_paused = false
 
 
 func get_platform_pos():
@@ -39,6 +46,7 @@ func _switch_on():
 	waitingnext = true
 	$CanvasLayer/ColorRect.material.set_shader_parameter("intense",3.0)
 	$on.play()
+	$noise.stream_paused = true
 	LightManger.turn_on()
 
 func _input(event: InputEvent) -> void:
@@ -56,6 +64,11 @@ func _ready() -> void:
 	#reload_level()
 	switchon.connect(_switch_on)
 	restart.connect(reload_level)
+	$CanvasLayer/ColorRect.material.set_shader_parameter("web","web" in OS.get_name().to_lower())
+	preload("res://levels/intro.tscn")
+	preload("res://levels/jump.tscn")
+	preload("res://levels/troll.tscn")
+	preload("res://levels/platform.tscn")
 
 
 func _on_restart_timeout() -> void:

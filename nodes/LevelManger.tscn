@@ -1,14 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2v7ir5m071io"]
+[gd_scene load_steps=8 format=3 uid="uid://d2v7ir5m071io"]
 
 [ext_resource type="Script" path="res://scripts/LevelManger.gd" id="1_r50tk"]
 [ext_resource type="AudioStream" uid="uid://cino1egptig23" path="res://audio/switchon.wav" id="2_wh1vy"]
 [ext_resource type="Shader" path="res://nodes/postprocces.gdshader" id="3_ar45b"]
 [ext_resource type="Texture2D" uid="uid://c7038tai3p3xa" path="res://icon.svg" id="4_qprtw"]
 [ext_resource type="Texture2D" uid="uid://clo6sf1x14y3f" path="res://grain.jpg" id="4_wk610"]
+[ext_resource type="AudioStream" uid="uid://b7yjoyky1vgue" path="res://audio/Fan.wav" id="6_hrbcu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r46o6"]
 shader = ExtResource("3_ar45b")
 shader_parameter/intense = 1.0
+shader_parameter/web = false
 shader_parameter/grain = ExtResource("4_wk610")
 
 [node name="LevelManger" type="Node2D"]
@@ -26,7 +28,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="on" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wh1vy")
-volume_db = 20.0
+volume_db = 10.0
 
 [node name="off" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wh1vy")
@@ -42,7 +44,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="platformcooldown" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.7
 one_shot = true
 autostart = true
 
@@ -61,6 +63,12 @@ offset_top = -43.0
 offset_right = -39.0
 offset_bottom = -3.0
 scale = Vector2(36.2225, 20.4042)
+
+[node name="noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hrbcu")
+volume_db = -42.515
+pitch_scale = 0.9
+autoplay = true
 
 [connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]
 [connection signal="timeout" from="platformtimer" to="." method="_on_platformtimer_timeout"]

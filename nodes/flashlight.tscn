@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cedwafr5m4hxg" path="res://light.png" id="2_aufei"]
 [ext_resource type="Shader" path="res://light.gdshader" id="3_rpoei"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l34jp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4ipo"]
 shader = ExtResource("3_rpoei")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.975
@@ -25,6 +25,6 @@ texture_scale = 3.0
 show_behind_parent = true
 light_mask = 2
 z_index = -1
-material = SubResource("ShaderMaterial_l34jp")
+material = SubResource("ShaderMaterial_r4ipo")
 scale = Vector2(2, 2)
 texture = ExtResource("2_aufei")

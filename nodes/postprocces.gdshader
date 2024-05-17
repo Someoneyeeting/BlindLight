@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform sampler2D grain : repeat_enable;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform float intense = 1.0;
+uniform bool web = false;
 
 
 void vertex() {
@@ -32,7 +33,12 @@ void fragment() {
             * 40.0
             )
         );
-	vec3 clr = texture(SCREEN_TEXTURE,SCREEN_UV + vec2(0.00094,0.0009) * sin(TIME * 100.) * rand).rgb;
+	vec3 clr;
+	if(!web)
+		clr = texture(SCREEN_TEXTURE,SCREEN_UV + vec2(0.00094,0.0009) * sin(TIME * 100.) * rand).rgb;
+	else{
+		clr = texture(SCREEN_TEXTURE,SCREEN_UV).rgb;
+	}
 	rand /= intense;
 	rand = rand;
 	clr.rgb += vec3(rand) * clr.r;
