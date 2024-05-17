@@ -49,6 +49,11 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("rclick")):
 		$switch.play()
 		flashlighton = !flashlighton
+	if(lightbattery <= 0.75):
+		$flashlight/Area2D/CollisionPolygon2D.disabled = true
+	else:
+		$flashlight/Area2D/CollisionPolygon2D.disabled = !flashlighton
+		
 	$flashlight.visible = flashlighton
 	
 	

@@ -11,7 +11,7 @@
 shader = ExtResource("3_qalwy")
 shader_parameter/skew = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h1sa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj8lr"]
 shader = ExtResource("3_jhw0g")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.42
@@ -42,7 +42,13 @@ range_item_cull_mask = 1
 
 [node name="back" parent="flashlight" index="1"]
 light_mask = 1
-material = SubResource("ShaderMaterial_6h1sa")
+material = SubResource("ShaderMaterial_qj8lr")
+
+[node name="Area2D" type="Area2D" parent="flashlight" groups=["flashlight"]]
+scale = Vector2(0.84, 0.84)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="flashlight/Area2D"]
+polygon = PackedVector2Array(-10, 20, 100, 99, 185, 28, 167, -57, 101, -96, -13, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

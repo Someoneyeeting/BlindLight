@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy35xwox04vo4"]
+
+[ext_resource type="Script" path="res://scripts/invis.gd" id="1_xl00h"]
+
+[sub_resource type="Shader" id="Shader_memem"]
+code = "shader_type canvas_item;
+
+uniform float x = 0.1;
+uniform float y = 0.01;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	if(UV.x < x || UV.x > 1. - x || UV.y < y || UV.t > 1. - y){
+		COLOR.rgb = vec3(0.0);
+	}
+	else{
+		COLOR.a = 0.;
+	}
+	
+}
+
+void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o50m3"]
+shader = SubResource("Shader_memem")
+shader_parameter/x = 0.04
+shader_parameter/y = 0.09
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4rmr"]
+size = Vector2(147, 54)
+
+[node name="invis" type="Node2D"]
+script = ExtResource("1_xl00h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2375
+material = SubResource("ShaderMaterial_o50m3")
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.69339, 1.36005)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(73.5, 27)
+shape = SubResource("RectangleShape2D_a4rmr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(73.5, 27)
+shape = SubResource("RectangleShape2D_a4rmr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
