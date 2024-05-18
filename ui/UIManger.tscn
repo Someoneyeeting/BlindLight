@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxh3i5wiimo11"]
+[gd_scene load_steps=4 format=3 uid="uid://cxh3i5wiimo11"]
 
 [ext_resource type="Script" path="res://ui/UIManger.gd" id="1_4kjvp"]
+[ext_resource type="AudioStream" uid="uid://cmn0git0mc8es" path="res://audio/select.wav" id="2_sqt7f"]
+[ext_resource type="AudioStream" uid="uid://c3d2bsj8b1b5h" path="res://audio/press.wav" id="3_0o6b0"]
 
 [node name="UIManger" type="Node2D"]
 script = ExtResource("1_4kjvp")
 
 [node name="menus" type="Node2D" parent="."]
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sqt7f")
+
+[node name="press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0o6b0")

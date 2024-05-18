@@ -16,16 +16,16 @@ func open_menu(menu):
 	if($menus.get_child_count() > 0):
 		$menus.get_children().back().selected = false
 		$menus.get_children().back().hide()
-	$menus.add_child(men)
 	men.selected = true
 	men.manger = self
+	$menus.add_child(men)
 	
 
 func close_current():
-	$menus.get_children()[-2].selected = true
 	print($menus.get_children().back().name)
 	$menus.get_children().back().killyourself()
 	print($menus.get_children().back().name)
+	$menus.get_children()[-1].set_deferred("selected",true)
 	#$menus.get_children()[.].show()
 	
 func close_menu():

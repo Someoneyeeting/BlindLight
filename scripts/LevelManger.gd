@@ -87,6 +87,7 @@ func _ready() -> void:
 	#reload_level()
 	switchon.connect(_switch_on)
 	restart.connect(reload_level)
+	$noise.stream_paused = true
 	$CanvasLayer/ColorRect.material.set_shader_parameter("web","web" in OS.get_name().to_lower())
 	preload("res://levels/intro.tscn")
 	preload("res://levels/jump.tscn")

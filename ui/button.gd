@@ -9,7 +9,7 @@ var selected = false
 
 func select():
 	$AnimationPlayer.play("select")
-	$select.play()
+	parentmenu.manger.get_node("select").play()
 	selected = true
 	
 
@@ -23,8 +23,8 @@ func unselect():
 
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("ui_accept") and selected and parentmenu.selected):
+		parentmenu.manger.get_node("press").play()
 		Press.emit()
-		$press.play()
 			
 func _ready() -> void:
 	pass
