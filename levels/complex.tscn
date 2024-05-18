@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://dviil7esr7ra8"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_5by6b"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="2_rlumj"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="3_ar0dr"]
+[ext_resource type="PackedScene" uid="uid://de1ypnocqhym3" path="res://nodes/platform.tscn" id="4_g6dbh"]
+[ext_resource type="PackedScene" uid="uid://cy35xwox04vo4" path="res://nodes/invis.tscn" id="5_deamy"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="6_4c27t"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="7_o8a0h"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="back2" parent="." instance=ExtResource("1_5by6b")]
+position = Vector2(730, 415)
+
+[node name="Player" parent="." instance=ExtResource("2_rlumj")]
+position = Vector2(116, 544)
+
+[node name="block" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(112, 745)
+scale = Vector2(9.84361, 7.60936)
+
+[node name="Platform" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_g6dbh")]
+position = Vector2(462, 615)
+target = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(964, 615)
+
+[node name="invis" parent="." instance=ExtResource("5_deamy")]
+position = Vector2(893, 496)
+
+[node name="invis2" parent="." instance=ExtResource("5_deamy")]
+position = Vector2(893, 380)
+
+[node name="Platform2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_g6dbh")]
+position = Vector2(429, 334)
+target = NodePath("../Marker2D2")
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(744, 404)
+
+[node name="block2" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(153, 248)
+rotation = 0.538101
+scale = Vector2(8.55246, 1.23041)
+
+[node name="block3" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(429, 182)
+scale = Vector2(4.32, 1)
+
+[node name="block4" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(793, 182)
+scale = Vector2(4.32, 1)
+
+[node name="invis3" parent="." instance=ExtResource("5_deamy")]
+position = Vector2(642, 23)
+rotation = 1.5708
+
+[node name="block5" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1168, 202)
+scale = Vector2(7.96, 1)
+
+[node name="Switch" parent="." instance=ExtResource("6_4c27t")]
+position = Vector2(1246, 140)
+
+[node name="flashlight" parent="." instance=ExtResource("7_o8a0h")]
+position = Vector2(1217, 80)
+rotation = 1.5708
+
+[node name="block6" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1282, 142)
+scale = Vector2(1.39002, 2.47176)
+
+[node name="block7" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1282, 142)
+scale = Vector2(1.39002, 2.47176)
+
+[node name="block8" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1303, 64)
+rotation = 0.523599
+scale = Vector2(1.39002, 2.47176)
+
+[node name="block9" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1238, 27)
+scale = Vector2(2.56, 2.64)
+
+[node name="block10" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(616, 0)
+scale = Vector2(35.56, 1)
+
+[node name="block11" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(0, 364)
+scale = Vector2(1, 18.04)
+
+[node name="block12" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1282, 364)
+scale = Vector2(1, 19.12)
+
+[node name="block13" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1262, 222)
+rotation = 0.785398
+
+[node name="block14" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(1187, 20.0001)
+rotation = 0.785398
+
+[node name="block15" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(20, 20.0001)
+rotation = 0.785398
+
+[node name="block16" parent="." instance=ExtResource("3_ar0dr")]
+position = Vector2(20, 593)
+rotation = 0.785398

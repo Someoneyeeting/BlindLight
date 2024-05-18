@@ -11,11 +11,13 @@ var levels = [
 	"res://levels/jump.tscn",
 	"res://levels/troll.tscn",
 	"res://levels/blindjump.tscn",
-	"res://levels/platform.tscn"
+	"res://levels/platform.tscn",
+	"res://levels/complex.tscn"
 ]
 
 var platformlevels = [
-	"res://levels/platform.tscn"
+	"res://levels/platform.tscn",
+	"res://levels/complex.tscn"
 ]
 
 func switch_level(level):
@@ -92,6 +94,7 @@ func _ready() -> void:
 	preload("res://levels/blindjump.tscn")
 	preload("res://levels/troll.tscn")
 	preload("res://levels/platform.tscn")
+	preload("res://levels/complex.tscn")
 
 
 func _on_restart_timeout() -> void:
@@ -101,14 +104,15 @@ func _on_restart_timeout() -> void:
 
 func _on_platformtimer_timeout() -> void:
 	$platformcooldown.start()
-	$platform.stop()
 	$stop.play()
+	await get_tree().create_timer(0.5).timeout
+	$platform.stop()
 
 
 func _on_platformcooldown_timeout() -> void:
 	$leverpull.play()
+	await get_tree().create_timer(0.7).timeout
 	$platform.play()
-	await get_tree().create_timer(0.3).timeout
 	platformdir = not platformdir
 	$platformtimer.start()
 

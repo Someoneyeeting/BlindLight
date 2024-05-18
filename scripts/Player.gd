@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if(position.y >= get_viewport_rect().size.y + 200):
+	if(position.y >= get_viewport_rect().size.y + 300):
 		LevelManger.restart.emit()
 	
 	if(Input.is_action_just_pressed("restart")):

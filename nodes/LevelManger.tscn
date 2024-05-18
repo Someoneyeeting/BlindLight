@@ -74,16 +74,16 @@ autoplay = true
 
 [node name="leverpull" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_58iki")
-volume_db = -13.895
+volume_db = -28.0
 
 [node name="platform" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_nn2ly")
-volume_db = -26.886
+volume_db = -23.0
 pitch_scale = 0.96
 
 [node name="stop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_17mo2")
-volume_db = -23.21
+volume_db = -30.0
 pitch_scale = 0.8
 
 [connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]
