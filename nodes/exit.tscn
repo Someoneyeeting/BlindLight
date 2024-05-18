@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://3qksd4n4d5lt"]
+
+[ext_resource type="Script" path="res://ui/UIMenu.gd" id="1_swb4a"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="2_8ud4w"]
+[ext_resource type="PackedScene" uid="uid://5mfkfjv1f073" path="res://ui/button.tscn" id="3_df42h"]
+
+[sub_resource type="GDScript" id="GDScript_d7xwx"]
+resource_name = "events"
+script/source = "extends Node2D
+
+
+func _on_cancel_press() -> void:
+	owner.manger.close_current()
+
+
+func _on_exit_press() -> void:
+	LevelManger.main_menu()
+	owner.manger.close_current()
+	
+"
+
+[node name="Exit" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_swb4a")
+buttons = NodePath("button")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 114.0
+offset_right = 894.0
+offset_bottom = 220.0
+theme_override_fonts/font = ExtResource("2_8ud4w")
+theme_override_font_sizes/font_size = 96
+text = "Are you sure?"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 443.0
+offset_top = 218.0
+offset_right = 827.0
+offset_bottom = 264.0
+theme_override_fonts/font = ExtResource("2_8ud4w")
+theme_override_font_sizes/font_size = 41
+text = "progress won't be saved"
+
+[node name="event" type="Node2D" parent="."]
+script = SubResource("GDScript_d7xwx")
+
+[node name="button" type="Node2D" parent="."]
+
+[node name="cancel" parent="button" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_df42h")]
+position = Vector2(307, 424)
+parentmenu = NodePath("../..")
+text = "Cancel"
+
+[node name="exit" parent="button" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_df42h")]
+position = Vector2(828, 424)
+parentmenu = NodePath("../..")
+text = "Exit"
+
+[connection signal="Press" from="button/cancel" to="event" method="_on_cancel_press"]
+[connection signal="Press" from="button/exit" to="event" method="_on_exit_press"]

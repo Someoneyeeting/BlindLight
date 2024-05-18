@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	visible = selected
 
 func _input(event: InputEvent) -> void:
-	if(not selected):
+	if(not selected or not get_tree().paused or not is_visible_in_tree()):
 		return
 	if(buttons.get_child_count() > 1):
 		if(Input.is_action_just_pressed("ui_down")):

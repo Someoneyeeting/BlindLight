@@ -22,7 +22,7 @@ func unselect():
 	selected = false
 
 func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("ui_accept") and selected and parentmenu.selected):
+	if(event.is_action_pressed("ui_accept") and selected and parentmenu.selected and is_visible_in_tree()):
 		parentmenu.manger.get_node("press").play()
 		Press.emit()
 			

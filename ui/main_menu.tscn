@@ -11,9 +11,7 @@ script/source = "extends Node2D
 
 
 func _on_start_press() -> void:
-	LevelManger.reload_level()
-	owner.manger.close_menu()
-	LevelManger.unpause()
+	LevelManger.start_play()
 
 
 func _on_settings_press() -> void:

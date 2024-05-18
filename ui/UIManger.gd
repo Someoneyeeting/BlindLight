@@ -5,12 +5,17 @@ var curmenu
 var menus = {
 	"main" : preload("res://ui/main_menu.tscn"),
 	"settings" : preload("res://ui/settings.tscn"),
-	"quit" : preload("res://ui/quitgame.tscn")
+	"quit" : preload("res://ui/quitgame.tscn"),
+	"pause" : preload("res://ui/pause.tscn"),
+	"exit" : preload("res://nodes/exit.tscn")
 }
-@onready var initmenu := "main"
+@export var startmenu := true
 
 func _ready() -> void:
-	open_menu(initmenu)
+	if(startmenu):
+		open_menu("main")
+	else:
+		open_menu("pause")
 
 func open_menu(menu):
 	var men = menus[menu].instantiate()
@@ -23,9 +28,7 @@ func open_menu(menu):
 	
 
 func close_current():
-	print($menus.get_children().back().name)
 	$menus.get_children().back().killyourself()
-	print($menus.get_children().back().name)
 	$menus.get_children()[-1].set_deferred("selected",true)
 	#$menus.get_children()[.].show()
 	

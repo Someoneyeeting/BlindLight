@@ -6,6 +6,7 @@ signal restart
 var curlevel = 0
 var waitingnext = false
 var platformdir = false
+var playing = false
 var levels = [
 	"res://levels/intro.tscn",
 	"res://levels/jump.tscn",
@@ -78,16 +79,20 @@ func _input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			
-
-#func _physics_process(delta: float) -> void:
-	#$Camera2D.global_position.x = randf_range(-10,10) / 20
-	#$Camera2D.global_position.y = randf_range(-10,10) / 20
+	if(event.is_action_pressed("pause")):
+		if(playing):
+			if(get_tree().paused):
+				unpause()
+			else:
+				pause()
 
 
 func _ready() -> void:
 	reload_level()
-	pause()
+	
+	get_tree().paused = true
+	#$ui.show()
+	
 	switchon.connect(_switch_on)
 	restart.connect(reload_level)
 	$noise.stream_paused = true
@@ -100,6 +105,21 @@ func _ready() -> void:
 	preload("res://levels/complex.tscn")
 	preload("res://levels/intro.tscn")
 
+
+func start_play():
+	unpause()
+	$ui/StartScreen.hide()
+	$ui/pause.show()
+	reload_level()
+	playing = true
+
+func main_menu():
+	reload_level()
+	get_tree().paused = true
+	playing = false
+	$ui/pause.hide()
+	$ui/StartScreen.show()
+	$noise.stream_paused = true
 
 func _on_restart_timeout() -> void:
 	$ColorRect.hide()
@@ -121,12 +141,15 @@ func _on_platformcooldown_timeout() -> void:
 	$platformtimer.start()
 
 func pause():
-	get_tree().paused = true
 	$ui.show()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().set_deferred("paused",true)
 
 func unpause():
-	get_tree().paused = false
 	$ui.hide()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().set_deferred("paused",false)
+	
 	
 
 func _on_levelpull_finished() -> void:
