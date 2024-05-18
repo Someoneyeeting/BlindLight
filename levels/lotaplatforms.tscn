@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://dubxbl7130wmt"]
+
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="1_4evdt"]
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="2_7jggf"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="3_g24ym"]
+[ext_resource type="PackedScene" uid="uid://de1ypnocqhym3" path="res://nodes/platform.tscn" id="4_h1cyr"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_bpxhy"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="6_1gsnb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4evdt")]
+position = Vector2(90, 644)
+
+[node name="back2" parent="." instance=ExtResource("2_7jggf")]
+position = Vector2(730, 410)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.835, 0.835)
+
+[node name="block" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(121, 847)
+scale = Vector2(8.44908, 7.09952)
+
+[node name="Platform" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_h1cyr")]
+position = Vector2(430, 732)
+target = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(796, 732)
+
+[node name="Platform3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_h1cyr")]
+position = Vector2(1041, 427)
+target = NodePath("../Marker2D2")
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(1041, 729)
+
+[node name="Platform4" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_h1cyr")]
+position = Vector2(1324, 424)
+target = NodePath("../Marker2D3")
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(391, 424)
+
+[node name="block2" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(121, 421)
+scale = Vector2(5.6, 1)
+
+[node name="Platform2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_h1cyr")]
+position = Vector2(397, 428)
+target = NodePath("../Marker2D4")
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(397, 150)
+
+[node name="block3" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(118, 165)
+scale = Vector2(7.04412, 1.15)
+
+[node name="block4" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(1520, 420)
+scale = Vector2(1, 22.56)
+
+[node name="block5" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(684, 1)
+scale = Vector2(49.52, 1)
+
+[node name="block6" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(-4, 363)
+scale = Vector2(1, 18.88)
+
+[node name="block7" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(16, 705)
+rotation = 0.785398
+
+[node name="block8" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(16, 441)
+rotation = 0.785398
+
+[node name="block9" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(16, 401)
+rotation = 0.785398
+
+[node name="block10" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(16, 188)
+rotation = 0.785398
+
+[node name="block12" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(16, 21)
+rotation = 0.785398
+
+[node name="block13" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(1500, 21)
+rotation = 0.785398
+
+[node name="block11" parent="." instance=ExtResource("3_g24ym")]
+position = Vector2(2, 109)
+scale = Vector2(1.51218, 2.12421)
+
+[node name="Switch" parent="." instance=ExtResource("5_bpxhy")]
+position = Vector2(40, 104)
+scale = Vector2(-1, 1)
+
+[node name="flashlight" parent="." instance=ExtResource("6_1gsnb")]
+position = Vector2(62, 21)
+rotation = 1.5708

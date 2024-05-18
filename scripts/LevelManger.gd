@@ -12,8 +12,9 @@ var levels = [
 	"res://levels/jump.tscn",
 	"res://levels/parkour.tscn",
 	"res://levels/troll.tscn",
-	"res://levels/blindjump.tscn",
 	"res://levels/platform.tscn",
+	"res://levels/lotaplatforms.tscn",
+	"res://levels/blindjump.tscn",
 	"res://levels/complex.tscn",
 	"res://levels/beforetheend.tscn",
 	"res://levels/endscreen.tscn"
@@ -21,22 +22,23 @@ var levels = [
 
 var platformlevels = [
 	"res://levels/platform.tscn",
+	"res://levels/lotaplatforms.tscn",
 	"res://levels/complex.tscn"
 ]
 
 func switch_level(level):
 	get_tree().call_deferred("change_scene_to_file",levels[level])
+	$platformtimer.stop()
+	$platformcooldown.stop()
+	$leverpull.stop()
+	$stop.stop()
+	$platform.stop()
+	platformdir = false
 	if(not get_tree().paused):
 		$off.play()
 		$noise.stream_paused = false
 	if(levels[curlevel] in platformlevels):
-		$platformtimer.start()
-	else:
-		$platformtimer.stop()
-		$platformcooldown.stop()
-		$leverpull.stop()
-		$stop.stop()
-		$platform.stop()
+		$platformcooldown.start()
 	
 
 
