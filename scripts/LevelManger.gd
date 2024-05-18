@@ -3,7 +3,7 @@ extends Node
 
 signal switchon
 signal restart
-var curlevel = 0
+var curlevel = 7
 var waitingnext = false
 var platformdir = false
 var playing = false
@@ -14,7 +14,8 @@ var levels = [
 	"res://levels/troll.tscn",
 	"res://levels/blindjump.tscn",
 	"res://levels/platform.tscn",
-	"res://levels/complex.tscn"
+	"res://levels/complex.tscn",
+	"res://levels/endscreen.tscn"
 ]
 
 var platformlevels = [
@@ -80,7 +81,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if(event.is_action_pressed("pause")):
-		if(playing):
+		if(playing and curlevel < levels.size() - 1):
 			if(get_tree().paused):
 				unpause()
 			else:
@@ -114,11 +115,13 @@ func start_play():
 	playing = true
 
 func main_menu():
+	curlevel = 0
 	reload_level()
-	get_tree().paused = true
-	playing = false
+	$ui.show()
 	$ui/pause.hide()
 	$ui/StartScreen.show()
+	get_tree().paused = true
+	playing = false
 	$noise.stream_paused = true
 
 func _on_restart_timeout() -> void:

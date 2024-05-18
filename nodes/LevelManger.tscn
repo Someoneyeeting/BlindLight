@@ -56,6 +56,21 @@ visible = false
 position = Vector2(510, 319)
 texture = ExtResource("4_qprtw")
 
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ui"]
+offset_left = -247.0
+offset_top = -151.0
+offset_right = 1566.0
+offset_bottom = 957.0
+color = Color(0, 0, 0, 1)
+
+[node name="pause" parent="ui" instance=ExtResource("9_e3qny")]
+visible = false
+startmenu = false
+
+[node name="StartScreen" parent="ui" instance=ExtResource("9_slur8")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 
@@ -86,21 +101,6 @@ pitch_scale = 0.96
 stream = ExtResource("9_17mo2")
 volume_db = -30.0
 pitch_scale = 0.8
-
-[node name="ui" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="ui"]
-offset_left = -247.0
-offset_top = -151.0
-offset_right = 1566.0
-offset_bottom = 957.0
-color = Color(0, 0, 0, 1)
-
-[node name="pause" parent="ui" instance=ExtResource("9_e3qny")]
-visible = false
-startmenu = false
-
-[node name="StartScreen" parent="ui" instance=ExtResource("9_slur8")]
 
 [connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]
 [connection signal="timeout" from="platformtimer" to="." method="_on_platformtimer_timeout"]

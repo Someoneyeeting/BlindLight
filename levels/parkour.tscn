@@ -64,7 +64,7 @@ rotation = 0.554393
 scale = Vector2(6.37023, 0.701501)
 
 [node name="block3" parent="." instance=ExtResource("2_7mvpy")]
-position = Vector2(678, 551)
+position = Vector2(678, 552)
 rotation = -0.213246
 scale = Vector2(3.29799, 0.701501)
 
