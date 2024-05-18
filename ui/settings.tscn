@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4vtbmdbvl8dw"]
+
+[ext_resource type="Script" path="res://ui/UIMenu.gd" id="1_1pu46"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="2_pf36k"]
+[ext_resource type="PackedScene" uid="uid://5mfkfjv1f073" path="res://ui/button.tscn" id="3_v34e0"]
+
+[sub_resource type="GDScript" id="GDScript_rcnhm"]
+resource_name = "settingshandler"
+script/source = "extends Node2D
+
+
+
+func _physics_process(delta: float) -> void:
+	$\"../buttons/effects\".text = \"Toggle effects: \" + (\"on\" if LevelManger.get_node(\"./CanvasLayer/ColorRect\").visible else \"off\")
+	$\"../buttons/fullscreen\".text = \"Fullscreen: \" + (\"on\" if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN else \"off\")
+
+
+
+
+func _on_effects_press() -> void:
+	LevelManger.get_node(\"./CanvasLayer/ColorRect\").visible = !LevelManger.get_node(\"./CanvasLayer/ColorRect\").visible
+
+
+
+func _on_back_press() -> void:
+	owner.manger.close_current()
+"
+
+[node name="Settings" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_1pu46")
+buttons = NodePath("buttons")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 460.0
+offset_top = 48.0
+offset_right = 809.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("2_pf36k")
+theme_override_font_sizes/font_size = 111
+text = "Settings"
+
+[node name="eventhandler" type="Node2D" parent="."]
+script = SubResource("GDScript_rcnhm")
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="effects" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_v34e0")]
+position = Vector2(24, 295)
+parentmenu = NodePath("../..")
+
+[node name="fullscreen" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_v34e0")]
+position = Vector2(24, 380)
+parentmenu = NodePath("../..")
+
+[node name="back" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_v34e0")]
+position = Vector2(24, 555)
+parentmenu = NodePath("../..")
+text = "back"
+
+[connection signal="Press" from="buttons/effects" to="eventhandler" method="_on_effects_press"]
+[connection signal="Press" from="buttons/back" to="eventhandler" method="_on_back_press"]

@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://5mfkfjv1f073"]
+
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="1_lkgjx"]
+[ext_resource type="Script" path="res://ui/button.gd" id="1_oxfsv"]
+[ext_resource type="AudioStream" uid="uid://cmn0git0mc8es" path="res://audio/select.wav" id="3_3clrk"]
+[ext_resource type="AudioStream" uid="uid://c3d2bsj8b1b5h" path="res://audio/press.wav" id="4_a8cv3"]
+
+[sub_resource type="Shader" id="Shader_avboj"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	if(UV.x < UV.y){
+		COLOR.a = 0.;
+	}
+}
+
+void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktbks"]
+shader = SubResource("Shader_avboj")
+
+[sub_resource type="Animation" id="Animation_knefm"]
+resource_name = "select"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Vector2(3, 0), Vector2(16, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wht4c"]
+resource_name = "unselect"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Vector2(16, 0), Vector2(3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wrhll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6imgp"]
+_data = {
+"RESET": SubResource("Animation_wrhll"),
+"select": SubResource("Animation_knefm"),
+"unselect": SubResource("Animation_wht4c")
+}
+
+[node name="button" type="Node2D"]
+scale = Vector2(1.2997, 1.2997)
+script = ExtResource("1_oxfsv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 3.0
+offset_right = 116.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("1_lkgjx")
+theme_override_font_sizes/font_size = 43
+text = "Button"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ktbks")
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 43.0
+offset_bottom = 55.0
+rotation = 0.785398
+scale = Vector2(0.383355, 0.383355)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6imgp")
+}
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3clrk")
+volume_db = 7.0
+
+[node name="press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a8cv3")
+volume_db = 7.0

@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2v7ir5m071io"]
+[gd_scene load_steps=10 format=3 uid="uid://d2v7ir5m071io"]
 
 [ext_resource type="Script" path="res://scripts/LevelManger.gd" id="1_r50tk"]
 [ext_resource type="AudioStream" uid="uid://cino1egptig23" path="res://audio/switchon.wav" id="2_wh1vy"]
 [ext_resource type="Shader" path="res://nodes/postprocces.gdshader" id="3_ar45b"]
 [ext_resource type="Texture2D" uid="uid://c7038tai3p3xa" path="res://icon.svg" id="4_qprtw"]
-[ext_resource type="Texture2D" uid="uid://clo6sf1x14y3f" path="res://grain.jpg" id="4_wk610"]
 [ext_resource type="AudioStream" uid="uid://b7yjoyky1vgue" path="res://audio/Fan.wav" id="6_hrbcu"]
 [ext_resource type="AudioStream" uid="uid://dmqdbrvc25e52" path="res://audio/leverpull.wav" id="7_58iki"]
 [ext_resource type="AudioStream" uid="uid://dnvonfugo855p" path="res://audio/platform.wav" id="8_nn2ly"]
@@ -14,7 +13,6 @@
 shader = ExtResource("3_ar45b")
 shader_parameter/intense = 1.0
 shader_parameter/web = false
-shader_parameter/grain = ExtResource("4_wk610")
 
 [node name="LevelManger" type="Node2D"]
 script = ExtResource("1_r50tk")
@@ -70,7 +68,7 @@ scale = Vector2(36.2225, 20.4042)
 stream = ExtResource("6_hrbcu")
 volume_db = -42.515
 pitch_scale = 0.9
-autoplay = true
+stream_paused = true
 
 [node name="leverpull" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_58iki")

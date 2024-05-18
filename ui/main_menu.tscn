@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://binmbdmjjvjax"]
+
+[ext_resource type="Script" path="res://ui/UIMenu.gd" id="1_6tepe"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="2_skjc2"]
+[ext_resource type="PackedScene" uid="uid://5mfkfjv1f073" path="res://ui/button.tscn" id="3_e5l0p"]
+
+[sub_resource type="GDScript" id="GDScript_ejgt3"]
+resource_name = "eventhandler"
+script/source = "extends Node2D
+
+
+
+func _on_start_press() -> void:
+	LevelManger.reload_level()
+
+
+func _on_settings_press() -> void:
+	owner.manger.open_menu(\"settings\")
+"
+
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_6tepe")
+buttons = NodePath("buttons")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 450.0
+offset_top = 70.0
+offset_right = 820.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("2_skjc2")
+theme_override_font_sizes/font_size = 86
+text = "Blind Light"
+
+[node name="eventhandler" type="Node2D" parent="."]
+script = SubResource("GDScript_ejgt3")
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="start" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_e5l0p")]
+position = Vector2(24, 259)
+parentmenu = NodePath("../..")
+text = "Start"
+
+[node name="htp" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_e5l0p")]
+position = Vector2(24, 339)
+parentmenu = NodePath("../..")
+text = "How to play"
+
+[node name="settings" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_e5l0p")]
+position = Vector2(24, 419)
+parentmenu = NodePath("../..")
+text = "Settings"
+
+[node name="quit" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_e5l0p")]
+position = Vector2(24, 565)
+parentmenu = NodePath("../..")
+text = "Quit"
+
+[connection signal="Press" from="buttons/start" to="eventhandler" method="_on_start_press"]
+[connection signal="Press" from="buttons/settings" to="eventhandler" method="_on_settings_press"]
