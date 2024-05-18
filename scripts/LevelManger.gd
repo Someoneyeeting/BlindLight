@@ -3,7 +3,7 @@ extends Node
 
 signal switchon
 signal restart
-var curlevel = -1
+var curlevel = 0
 var waitingnext = false
 var platformdir = false
 var levels = [
@@ -23,8 +23,9 @@ var platformlevels = [
 
 func switch_level(level):
 	get_tree().change_scene_to_file(levels[level])
-	$off.play()
-	$noise.stream_paused = false
+	if(not get_tree().paused):
+		$off.play()
+		$noise.stream_paused = false
 	if(levels[curlevel] in platformlevels):
 		$platformtimer.start()
 	else:
@@ -85,7 +86,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	#reload_level()
+	reload_level()
+	pause()
 	switchon.connect(_switch_on)
 	restart.connect(reload_level)
 	$noise.stream_paused = true
@@ -117,6 +119,15 @@ func _on_platformcooldown_timeout() -> void:
 	$platform.play()
 	platformdir = not platformdir
 	$platformtimer.start()
+
+func pause():
+	get_tree().paused = true
+	$ui.show()
+
+func unpause():
+	get_tree().paused = false
+	$ui.hide()
+	
 
 func _on_levelpull_finished() -> void:
 	pass

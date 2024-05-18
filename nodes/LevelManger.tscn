@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2v7ir5m071io"]
+[gd_scene load_steps=11 format=3 uid="uid://d2v7ir5m071io"]
 
 [ext_resource type="Script" path="res://scripts/LevelManger.gd" id="1_r50tk"]
 [ext_resource type="AudioStream" uid="uid://cino1egptig23" path="res://audio/switchon.wav" id="2_wh1vy"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dmqdbrvc25e52" path="res://audio/leverpull.wav" id="7_58iki"]
 [ext_resource type="AudioStream" uid="uid://dnvonfugo855p" path="res://audio/platform.wav" id="8_nn2ly"]
 [ext_resource type="AudioStream" uid="uid://bek8pasru6yoe" path="res://audio/stop.wav" id="9_17mo2"]
+[ext_resource type="PackedScene" uid="uid://bdumw3mithfin" path="res://ui/StartScreen.tscn" id="9_slur8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r46o6"]
 shader = ExtResource("3_ar45b")
@@ -15,6 +16,7 @@ shader_parameter/intense = 1.0
 shader_parameter/web = false
 
 [node name="LevelManger" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_r50tk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -83,6 +85,18 @@ pitch_scale = 0.96
 stream = ExtResource("9_17mo2")
 volume_db = -30.0
 pitch_scale = 0.8
+
+[node name="ui" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ui"]
+offset_left = -247.0
+offset_top = -151.0
+offset_right = 1566.0
+offset_bottom = 957.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartScreen" parent="ui" instance=ExtResource("9_slur8")]
 
 [connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]
 [connection signal="timeout" from="platformtimer" to="." method="_on_platformtimer_timeout"]

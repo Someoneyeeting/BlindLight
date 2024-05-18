@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://c3d2bsj8b1b5h" path="res://audio/press.wav" id="3_0o6b0"]
 
 [node name="UIManger" type="Node2D"]
+process_mode = 3
+z_index = 70
 script = ExtResource("1_4kjvp")
 
 [node name="menus" type="Node2D" parent="."]

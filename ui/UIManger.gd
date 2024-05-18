@@ -30,4 +30,5 @@ func close_current():
 	#$menus.get_children()[.].show()
 	
 func close_menu():
+	get_parent().remove_child(self)
 	queue_free()
