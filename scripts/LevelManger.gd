@@ -3,7 +3,7 @@ extends Node
 
 signal switchon
 signal restart
-var curlevel = 7
+var curlevel = 0
 var waitingnext = false
 var platformdir = false
 var playing = false
@@ -15,6 +15,7 @@ var levels = [
 	"res://levels/blindjump.tscn",
 	"res://levels/platform.tscn",
 	"res://levels/complex.tscn",
+	"res://levels/beforetheend.tscn",
 	"res://levels/endscreen.tscn"
 ]
 
@@ -24,7 +25,7 @@ var platformlevels = [
 ]
 
 func switch_level(level):
-	get_tree().change_scene_to_file(levels[level])
+	get_tree().call_deferred("change_scene_to_file",levels[level])
 	if(not get_tree().paused):
 		$off.play()
 		$noise.stream_paused = false
@@ -98,13 +99,16 @@ func _ready() -> void:
 	restart.connect(reload_level)
 	$noise.stream_paused = true
 	#$CanvasLayer/ColorRect.material.set_shader_parameter("web","web" in OS.get_name().to_lower())
+	
+	preload("res://levels/intro.tscn")
 	preload("res://levels/jump.tscn")
 	preload("res://levels/parkour.tscn")
-	preload("res://levels/blindjump.tscn")
 	preload("res://levels/troll.tscn")
+	preload("res://levels/blindjump.tscn")
 	preload("res://levels/platform.tscn")
 	preload("res://levels/complex.tscn")
-	preload("res://levels/intro.tscn")
+	preload("res://levels/beforetheend.tscn")
+	preload("res://levels/endscreen.tscn")
 
 
 func start_play():

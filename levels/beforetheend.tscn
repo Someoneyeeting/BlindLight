@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://kfkmuvy6auuy"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_lef0j"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_ck2f6"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_pw11b"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_s8sd4"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_8u3bh"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="6_akfnr"]
+
+[sub_resource type="GDScript" id="GDScript_36n2b"]
+script/source = "extends Node2D
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	LevelManger.next_level()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjrnx"]
+size = Vector2(20, 48)
+
+[node name="beforetheend" type="Node2D"]
+script = SubResource("GDScript_36n2b")
+
+[node name="back2" parent="." instance=ExtResource("1_lef0j")]
+
+[node name="block" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(580, 832)
+scale = Vector2(36.0496, 9.81631)
+
+[node name="block2" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(1208, -3.99997)
+scale = Vector2(2.82534, 22.9221)
+
+[node name="block3" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(1291, 579)
+scale = Vector2(2.82534, 2.88209)
+
+[node name="Player" parent="." instance=ExtResource("3_pw11b")]
+position = Vector2(99, 587)
+
+[node name="flashlight" parent="." instance=ExtResource("4_s8sd4")]
+position = Vector2(1203, 455)
+rotation = 1.5708
+metadata/_edit_lock_ = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1225, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-8, 2)
+shape = SubResource("RectangleShape2D_cjrnx")
+
+[node name="Switch" parent="." instance=ExtResource("5_8u3bh")]
+position = Vector2(1225, 597)
+
+[node name="Area2D" parent="Switch" index="2"]
+collision_layer = 0
+
+[node name="block4" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(0, 300)
+scale = Vector2(1, 26.44)
+
+[node name="block5" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(1280, 360)
+scale = Vector2(1, 26.44)
+
+[node name="block6" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(530, 0)
+rotation = -1.57079
+scale = Vector2(1, 47.8)
+
+[node name="block7" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(600, 800)
+rotation = -1.57079
+scale = Vector2(1, 47.8)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 34.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("6_akfnr")
+theme_override_font_sizes/font_size = 50
+text = "Press 'Space' to proceed"
+
+[node name="block8" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(1151.24, 20)
+rotation = 0.785397
+
+[node name="block9" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(20, 20)
+rotation = 0.785397
+
+[node name="block10" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(20, 638)
+rotation = 0.785397
+
+[node name="block11" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(1263, 521)
+rotation = 0.785397
+
+[node name="block12" parent="." instance=ExtResource("2_ck2f6")]
+position = Vector2(1263, 454)
+rotation = 0.785397
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+
+[editable path="Switch"]
