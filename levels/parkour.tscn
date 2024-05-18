@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://c50pgtfvfdcr8"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_yc443"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_7mvpy"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_50y6u"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_cgiy2"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_ptxed"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(38, -21)
+
+[node name="back2" parent="." instance=ExtResource("1_yc443")]
+position = Vector2(581, 384)
+
+[node name="block" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(50.9999, 700)
+scale = Vector2(7.57844, 6.76183)
+
+[node name="block2" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(422, 579)
+scale = Vector2(3.29799, 0.701501)
+
+[node name="block9" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(422, 664)
+scale = Vector2(3.29799, 4.1415)
+
+[node name="block4" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(936, 462)
+rotation = -0.0525254
+scale = Vector2(6.89799, 0.701501)
+
+[node name="block5" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(656, 378)
+rotation = 0.208984
+scale = Vector2(3.29799, 0.701501)
+
+[node name="block6" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(439, 361)
+rotation = -0.0689757
+scale = Vector2(3.29799, 0.701501)
+
+[node name="block10" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(452, 181)
+rotation = -0.174697
+scale = Vector2(6.32525, 0.701501)
+
+[node name="block11" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(768, 193)
+rotation = 0.086375
+scale = Vector2(6.32525, 0.701501)
+
+[node name="block12" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(1162, 199)
+scale = Vector2(6.32525, 0.701501)
+
+[node name="block7" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(171, 263)
+rotation = 0.554393
+scale = Vector2(6.37023, 0.701501)
+
+[node name="block22" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(171, 263)
+rotation = 0.554393
+scale = Vector2(6.37023, 0.701501)
+
+[node name="block3" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(678, 551)
+rotation = -0.213246
+scale = Vector2(3.29799, 0.701501)
+
+[node name="Player" parent="." instance=ExtResource("3_50y6u")]
+position = Vector2(40, 521)
+metadata/_edit_lock_ = true
+
+[node name="block8" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(678, 659)
+scale = Vector2(3.4, 5.36)
+
+[node name="block13" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(-39, 290)
+scale = Vector2(1, 14)
+
+[node name="block15" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(1242, 392)
+scale = Vector2(1, 21.28)
+
+[node name="block14" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(612, 10)
+scale = Vector2(33.28, 1)
+
+[node name="block16" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(1222, 30.0001)
+rotation = 0.785398
+
+[node name="block17" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(-19, 30.0001)
+rotation = 0.785398
+
+[node name="block18" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(-19, 565)
+rotation = 0.785398
+
+[node name="block19" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(1222, 213)
+rotation = 0.785398
+
+[node name="flashlight" parent="." instance=ExtResource("4_cgiy2")]
+position = Vector2(1169, 30)
+rotation = 1.5708
+metadata/_edit_lock_ = true
+
+[node name="block20" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(1211, 155)
+scale = Vector2(1, 1.84)
+
+[node name="Switch" parent="." instance=ExtResource("5_ptxed")]
+position = Vector2(1183, 149)
+
+[node name="block21" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(1230, 108)
+rotation = 0.789826
+scale = Vector2(1, 1.77551)
+
+[node name="block23" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(75, 274.95)
+scale = Vector2(1, 3.355)
+
+[node name="block24" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(176.84, 330.75)
+scale = Vector2(4.76, 0.559998)
+
+[node name="block25" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(161, 314)
+scale = Vector2(3.68166, 0.837873)
+
+[node name="block26" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(103, 267)
+scale = Vector2(1.28993, 1.78324)
+
+[node name="block27" parent="." instance=ExtResource("2_7mvpy")]
+position = Vector2(146, 277)
+rotation = -1.13043
+scale = Vector2(1.28993, 2.9095)

@@ -11,7 +11,7 @@
 shader = ExtResource("3_qalwy")
 shader_parameter/skew = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj8lr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2to6g"]
 shader = ExtResource("3_jhw0g")
 shader_parameter/angle = 0.72
 shader_parameter/range = 0.42
@@ -22,8 +22,12 @@ shader_parameter/off = 0.035
 size = Vector2(40, 40)
 
 [node name="Player" type="CharacterBody2D"]
+floor_stop_on_slope = false
 floor_snap_length = 5.0
 script = ExtResource("1_8lh5v")
+speed = 190.0
+grav = 8.9
+jumpheight = 330.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 0
@@ -42,10 +46,10 @@ range_item_cull_mask = 1
 
 [node name="back" parent="flashlight" index="1"]
 light_mask = 1
-material = SubResource("ShaderMaterial_qj8lr")
+material = SubResource("ShaderMaterial_2to6g")
 
 [node name="Area2D" type="Area2D" parent="flashlight" groups=["flashlight"]]
-scale = Vector2(0.84, 0.84)
+scale = Vector2(0.691663, 0.691663)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="flashlight/Area2D"]
 polygon = PackedVector2Array(-10, 20, 100, 99, 185, 28, 167, -57, 101, -96, -13, -19)

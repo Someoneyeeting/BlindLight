@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2v7ir5m071io"]
+[gd_scene load_steps=11 format=3 uid="uid://d2v7ir5m071io"]
 
 [ext_resource type="Script" path="res://scripts/LevelManger.gd" id="1_r50tk"]
 [ext_resource type="AudioStream" uid="uid://cino1egptig23" path="res://audio/switchon.wav" id="2_wh1vy"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c7038tai3p3xa" path="res://icon.svg" id="4_qprtw"]
 [ext_resource type="Texture2D" uid="uid://clo6sf1x14y3f" path="res://grain.jpg" id="4_wk610"]
 [ext_resource type="AudioStream" uid="uid://b7yjoyky1vgue" path="res://audio/Fan.wav" id="6_hrbcu"]
+[ext_resource type="AudioStream" uid="uid://dmqdbrvc25e52" path="res://audio/leverpull.wav" id="7_58iki"]
+[ext_resource type="AudioStream" uid="uid://dnvonfugo855p" path="res://audio/platform.wav" id="8_nn2ly"]
+[ext_resource type="AudioStream" uid="uid://bek8pasru6yoe" path="res://audio/stop.wav" id="9_17mo2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r46o6"]
 shader = ExtResource("3_ar45b")
@@ -19,11 +22,11 @@ script = ExtResource("1_r50tk")
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = 985
-offset_left = -54.0
-offset_top = -41.0
-offset_right = -14.0
-offset_bottom = -1.0
-scale = Vector2(32.9194, 23.1865)
+offset_left = -76.0
+offset_top = -63.0
+offset_right = -36.0
+offset_bottom = -23.0
+scale = Vector2(36.9357, 21.9346)
 color = Color(0, 0, 0, 1)
 
 [node name="on" type="AudioStreamPlayer" parent="."]
@@ -40,13 +43,12 @@ wait_time = 0.65
 one_shot = true
 
 [node name="platformtimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 3.0
 one_shot = true
 
 [node name="platformcooldown" type="Timer" parent="."]
-wait_time = 2.7
+wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false
@@ -70,6 +72,21 @@ volume_db = -42.515
 pitch_scale = 0.9
 autoplay = true
 
+[node name="leverpull" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_58iki")
+volume_db = -13.895
+
+[node name="platform" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nn2ly")
+volume_db = -26.886
+pitch_scale = 0.96
+
+[node name="stop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_17mo2")
+volume_db = -23.21
+pitch_scale = 0.8
+
 [connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]
 [connection signal="timeout" from="platformtimer" to="." method="_on_platformtimer_timeout"]
 [connection signal="timeout" from="platformcooldown" to="." method="_on_platformcooldown_timeout"]
+[connection signal="finished" from="leverpull" to="." method="_on_levelpull_finished"]

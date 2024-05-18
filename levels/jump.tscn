@@ -42,8 +42,8 @@ rotation = 1.5708
 metadata/_edit_lock_ = true
 
 [node name="block5" parent="." instance=ExtResource("2_yb8bt")]
-position = Vector2(1280, 534)
-scale = Vector2(1.72, 4.64)
+position = Vector2(1280, 477)
+scale = Vector2(1.72, 4.92)
 
 [node name="Switch" parent="." instance=ExtResource("4_vxcdx")]
 position = Vector2(1238, 501)

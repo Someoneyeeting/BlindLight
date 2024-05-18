@@ -8,7 +8,7 @@ void vertex() {
 
 void fragment() {
 	if(lighton){
-		COLOR.rgb = vec3(0.7);
+		COLOR.rgb = vec3(0.6);
 	}
 }
 

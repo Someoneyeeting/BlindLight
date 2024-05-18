@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="5_2fr1b"]
 [ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="6_mgtw3"]
 
-[node name="3" type="Node2D"]
+[node name="3" type="Node2D" groups=["platform"]]
 position = Vector2(-43, -29)
 
 [node name="back2" parent="." instance=ExtResource("1_yycgf")]
@@ -37,9 +37,9 @@ target = NodePath("../Marker2D2")
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(423, 299)
 
-[node name="block3" parent="." instance=ExtResource("2_821rm")]
-position = Vector2(1027, 280)
-scale = Vector2(4.92543, 0.830679)
+[node name="block9" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(1027, 391)
+scale = Vector2(4.92543, 5.71068)
 
 [node name="block4" parent="." instance=ExtResource("2_821rm")]
 position = Vector2(-82, 280)
@@ -72,3 +72,36 @@ scale = Vector2(1, 18.52)
 [node name="block8" parent="." instance=ExtResource("2_821rm")]
 position = Vector2(706, 48)
 scale = Vector2(31.28, 1)
+
+[node name="block3" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(1029, 497)
+rotation = 0.0987603
+scale = Vector2(4.834, 0.89)
+
+[node name="block10" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(1294, 67.9999)
+rotation = -0.785397
+
+[node name="block11" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(1294, 696)
+rotation = -0.785397
+
+[node name="block12" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(64, 696)
+rotation = -0.785397
+
+[node name="block13" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(64, 297)
+rotation = -0.785397
+
+[node name="block14" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(41, 193)
+rotation = -0.785397
+
+[node name="block15" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(58, 131)
+rotation = -0.785397
+
+[node name="block16" parent="." instance=ExtResource("2_821rm")]
+position = Vector2(176, 68)
+rotation = -0.785397

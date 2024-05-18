@@ -1,102 +1,114 @@
 [gd_scene load_steps=9 format=3 uid="uid://ek2m4yi5j2h1"]
 
-[ext_resource type="Script" path="res://scripts/2.gd" id="1_65o71"]
-[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_kt237"]
-[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_boveo"]
-[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="3_pbdfq"]
-[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_eucb1"]
-[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="5_gfl5e"]
-[ext_resource type="FontFile" uid="uid://cehjcvvny7v5t" path="res://Roboto-Regular.ttf" id="7_hle3x"]
+[ext_resource type="Script" path="res://scripts/2.gd" id="1_ijlxu"]
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="2_p815n"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="3_qmcgr"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="4_ddu40"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="5_u48mv"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="6_26g4t"]
+[ext_resource type="FontFile" uid="uid://cehjcvvny7v5t" path="res://Roboto-Regular.ttf" id="7_kr2ul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvguc"]
-size = Vector2(121, 146)
+size = Vector2(109, 131)
 
 [node name="2" type="Node2D"]
-script = ExtResource("1_65o71")
+script = ExtResource("1_ijlxu")
 
-[node name="back2" parent="." instance=ExtResource("1_kt237")]
+[node name="back2" parent="." instance=ExtResource("2_p815n")]
 position = Vector2(613, 327.999)
 
-[node name="block" parent="." instance=ExtResource("2_boveo")]
+[node name="block" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(295, 232)
 scale = Vector2(31.7578, 0.614031)
 
-[node name="block6" parent="." instance=ExtResource("2_boveo")]
+[node name="block6" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(1256, 422)
 scale = Vector2(22.08, 0.6)
 
-[node name="block7" parent="." instance=ExtResource("2_boveo")]
+[node name="block7" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(529, 419)
 scale = Vector2(8.88, 0.6)
 
-[node name="block11" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(427, 545)
+[node name="block11" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(423, 577)
 scale = Vector2(9.99774, 0.606774)
 
-[node name="block13" parent="." instance=ExtResource("2_boveo")]
-position = Vector2(1108, 546)
+[node name="block13" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(1095, 578)
 scale = Vector2(17.1177, 0.606774)
 
-[node name="block14" parent="." instance=ExtResource("2_boveo")]
+[node name="block14" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(-16, 418)
 scale = Vector2(8.88, 0.6)
 
-[node name="block12" parent="." instance=ExtResource("2_boveo")]
+[node name="block12" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(364, 327)
 rotation = 1.57079
 scale = Vector2(5.2, 0.623)
 
-[node name="block2" parent="." instance=ExtResource("2_boveo")]
+[node name="block2" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(0, 386)
 scale = Vector2(1, 24.16)
 
-[node name="block3" parent="." instance=ExtResource("2_boveo")]
+[node name="block3" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(1280, 402)
 scale = Vector2(1, 24.16)
 
-[node name="block4" parent="." instance=ExtResource("2_boveo")]
+[node name="block4" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(645, 3)
 rotation = 1.5708
 scale = Vector2(1, 39.12)
 
-[node name="Player" parent="." instance=ExtResource("3_pbdfq")]
+[node name="Player" parent="." instance=ExtResource("4_ddu40")]
 position = Vector2(79, 180)
 scale = Vector2(0.60464, 0.60464)
 metadata/_edit_lock_ = true
 
-[node name="flashlight" parent="." instance=ExtResource("4_eucb1")]
+[node name="flashlight" parent="." instance=ExtResource("5_u48mv")]
 position = Vector2(98, 247)
 rotation = 1.57079
 metadata/_edit_lock_ = true
 
-[node name="Switch" parent="." instance=ExtResource("5_gfl5e")]
+[node name="Switch" parent="." instance=ExtResource("6_26g4t")]
 position = Vector2(67, 371)
 scale = Vector2(-1, 1)
 
-[node name="block5" parent="." instance=ExtResource("2_boveo")]
+[node name="block5" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(36, 379)
 scale = Vector2(1, 2.4)
 
-[node name="block15" parent="." instance=ExtResource("2_boveo")]
+[node name="block15" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(163, 626)
 rotation = 0.785397
 scale = Vector2(7.84674, 7.7336)
 
-[node name="block16" parent="." instance=ExtResource("2_boveo")]
+[node name="block16" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(49, 656)
 scale = Vector2(4.56407, 11.7241)
 
-[node name="trap" parent="." instance=ExtResource("2_boveo")]
+[node name="trap" parent="." instance=ExtResource("3_qmcgr")]
 visible = false
 position = Vector2(710, 327)
 rotation = 1.57079
 scale = Vector2(5.2, 0.623)
 collision_layer = 0
 
+[node name="block25" parent="trap" instance=ExtResource("3_qmcgr")]
+position = Vector2(15.3846, 20.8677)
+rotation = -1.45156
+scale = Vector2(0.91449, 0.914501)
+skew = 1.33232
+
+[node name="block26" parent="trap" instance=ExtResource("3_qmcgr")]
+position = Vector2(-15.9615, 20.866)
+rotation = -1.45156
+scale = Vector2(0.91449, 0.914501)
+skew = 1.33232
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(449.5, 327)
+position = Vector2(455.5, 331.5)
 shape = SubResource("RectangleShape2D_cvguc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -107,8 +119,85 @@ offset_left = 274.0
 offset_top = 144.0
 offset_right = 418.0
 offset_bottom = 167.0
-theme_override_fonts/font = ExtResource("7_hle3x")
+theme_override_fonts/font = ExtResource("7_kr2ul")
 theme_override_font_sizes/font_size = 62
 text = "Press 'R' to restart"
+
+[node name="block8" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(1113, 584)
+scale = Vector2(7.57169, 8.0591)
+
+[node name="block9" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(962, 566)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block10" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(962, 434)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block17" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(1260, 410)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block18" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(1260, 23)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block19" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(20, 23)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block20" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(20, 220)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block21" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(20, 245)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block23" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(376, 407)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block27" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(477, 589)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block26" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(316, 575)
+rotation = 0.409138
+scale = Vector2(0.8, 0.8)
+
+[node name="block24" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(376, 244)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block29" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(352, 244)
+rotation = 0.785398
+scale = Vector2(0.8, 0.8)
+
+[node name="block22" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(17, 331)
+rotation = 0.785398
+scale = Vector2(1.3593, 1.3593)
+
+[node name="block25" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(379, 674)
+scale = Vector2(4.88425, 4.63662)
+
+[node name="block28" parent="." instance=ExtResource("3_qmcgr")]
+position = Vector2(866, 668)
+scale = Vector2(5.66598, -4.30049)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

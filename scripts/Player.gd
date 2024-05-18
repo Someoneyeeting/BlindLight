@@ -46,12 +46,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		wasinair = true
 	
-	if(Input.is_action_just_pressed("rclick")):
-		$switch.play()
-		flashlighton = !flashlighton
 	if(lightbattery <= 0.75):
 		$flashlight/Area2D/CollisionPolygon2D.disabled = true
+		flashlighton = false
 	else:
+		if(Input.is_action_just_pressed("rclick")):
+			$switch.play()
+			flashlighton = !flashlighton
 		$flashlight/Area2D/CollisionPolygon2D.disabled = !flashlighton
 		
 	$flashlight.visible = flashlighton
@@ -66,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_pressed("lclick")):
 			lightrange = lerp(lightrange,lightrangemax,0.3)
 			lightintense = lerp(lightintense,lightintensemax,0.3)
-			lightbattery -= delta / 70
+			lightbattery -= delta / 170
 			$lightbuzz.volume_db = -60
 		else:
 			lightrange = lerp(lightrange,lightrangemin,0.3)
