@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2g6ifgyesyem"]
+
+[ext_resource type="Script" path="res://ui/UIMenu.gd" id="1_02ob6"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="2_yu1fo"]
+[ext_resource type="Texture2D" uid="uid://cdrahya2r7oo5" path="res://Screenshot 2024-05-18 204504.png" id="3_56cev"]
+[ext_resource type="PackedScene" uid="uid://5mfkfjv1f073" path="res://ui/button.tscn" id="4_ntc72"]
+
+[sub_resource type="GDScript" id="GDScript_1yysn"]
+resource_name = "event"
+script/source = "extends Node2D
+
+
+func _on_back_press() -> void:
+	owner.manger.close_current()
+"
+
+[node name="howtoplay" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_02ob6")
+buttons = NodePath("buttons")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 493.0
+offset_top = 11.0
+offset_right = 776.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("2_yu1fo")
+theme_override_font_sizes/font_size = 61
+text = "How to play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 38.0
+offset_top = 146.0
+offset_right = 1231.0
+offset_bottom = 433.0
+theme_override_fonts/normal_font = ExtResource("2_yu1fo")
+theme_override_font_sizes/normal_font_size = 36
+text = "You will be playing in complete darkness, your only method of seeing the level is your flash light, Beware of the draining battery.
+
+hold 'Left Click' to amplify the light (will drain the battery faster)
+
+press 'Right Click' to turn off and on the light (will stop the battery from draining)"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 37.0
+offset_top = 474.0
+offset_right = 802.0
+offset_bottom = 556.0
+theme_override_fonts/normal_font = ExtResource("2_yu1fo")
+theme_override_font_sizes/normal_font_size = 36
+text = "Your goal is to reach the light switch in each room highlighted by the spotlight above it"
+fit_content = true
+
+[node name="Screenshot2024-05-18203708" type="Sprite2D" parent="."]
+position = Vector2(1060, 555)
+texture = ExtResource("3_56cev")
+region_enabled = true
+region_rect = Rect2(0, 42, 378, 302)
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="back" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("4_ntc72")]
+position = Vector2(71, 622)
+scale = Vector2(0.915318, 0.915318)
+parentmenu = NodePath("../..")
+text = "Back"
+
+[node name="event" type="Node2D" parent="."]
+script = SubResource("GDScript_1yysn")
+
+[connection signal="Press" from="buttons/back" to="event" method="_on_back_press"]

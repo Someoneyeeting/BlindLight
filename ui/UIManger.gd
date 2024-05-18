@@ -7,7 +7,8 @@ var menus = {
 	"settings" : preload("res://ui/settings.tscn"),
 	"quit" : preload("res://ui/quitgame.tscn"),
 	"pause" : preload("res://ui/pause.tscn"),
-	"exit" : preload("res://nodes/exit.tscn")
+	"exit" : preload("res://nodes/exit.tscn"),
+	"howtoplay" : preload("res://nodes/howtoplay.tscn")
 }
 @export var startmenu := true
 
