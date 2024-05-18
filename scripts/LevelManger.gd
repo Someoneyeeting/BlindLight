@@ -14,13 +14,15 @@ var levels = [
 	"res://levels/platform.tscn"
 ]
 
-var platformlevels = [3]
+var platformlevels = [
+	"res://levels/platform.tscn"
+]
 
 func switch_level(level):
 	get_tree().change_scene_to_file(levels[level])
 	$off.play()
 	$noise.stream_paused = false
-	if(curlevel in platformlevels):
+	if(levels[curlevel] in platformlevels):
 		$platformtimer.start()
 	else:
 		$platformtimer.stop()
@@ -67,6 +69,12 @@ func _input(event: InputEvent) -> void:
 		if(waitingnext):
 			next_level()
 			waitingnext = false
+	if(event.is_action_pressed("fullscreen")):
+		if(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED):
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			
 
 #func _physics_process(delta: float) -> void:
 	#$Camera2D.global_position.x = randf_range(-10,10) / 20

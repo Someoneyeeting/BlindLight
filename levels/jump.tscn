@@ -17,7 +17,7 @@ scale = Vector2(11.1089, -7.67446)
 
 [node name="block2" parent="." instance=ExtResource("2_yb8bt")]
 position = Vector2(676, 720)
-scale = Vector2(6.96672, 6.31259)
+scale = Vector2(8.32672, 6.31259)
 
 [node name="block3" parent="." instance=ExtResource("2_yb8bt")]
 position = Vector2(1160, 722)
