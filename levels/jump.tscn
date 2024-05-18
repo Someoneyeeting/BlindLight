@@ -16,7 +16,7 @@ position = Vector2(115, 712)
 scale = Vector2(11.1089, -7.67446)
 
 [node name="block2" parent="." instance=ExtResource("2_yb8bt")]
-position = Vector2(699, 720)
+position = Vector2(676, 720)
 scale = Vector2(6.96672, 6.31259)
 
 [node name="block3" parent="." instance=ExtResource("2_yb8bt")]
@@ -49,5 +49,20 @@ scale = Vector2(1.72, 4.92)
 position = Vector2(1238, 501)
 
 [node name="Player" parent="." instance=ExtResource("5_kgrvy")]
-position = Vector2(73, 468)
-metadata/_edit_lock_ = true
+position = Vector2(164, 468)
+
+[node name="block8" parent="." instance=ExtResource("2_yb8bt")]
+position = Vector2(31, 558)
+rotation = -0.785397
+
+[node name="block9" parent="." instance=ExtResource("2_yb8bt")]
+position = Vector2(31, 38)
+rotation = -0.785397
+
+[node name="block10" parent="." instance=ExtResource("2_yb8bt")]
+position = Vector2(1082, 38)
+rotation = -0.785397
+
+[node name="block11" parent="." instance=ExtResource("2_yb8bt")]
+position = Vector2(1246, 386)
+rotation = -0.785397

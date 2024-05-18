@@ -1,18 +1,28 @@
 [gd_scene load_steps=9 format=3 uid="uid://ek2m4yi5j2h1"]
 
 [ext_resource type="Script" path="res://scripts/2.gd" id="1_ijlxu"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="2_a83kk"]
 [ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="2_p815n"]
 [ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="3_qmcgr"]
 [ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="4_ddu40"]
 [ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="5_u48mv"]
 [ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="6_26g4t"]
-[ext_resource type="FontFile" uid="uid://cehjcvvny7v5t" path="res://Roboto-Regular.ttf" id="7_kr2ul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvguc"]
 size = Vector2(109, 131)
 
 [node name="2" type="Node2D"]
 script = ExtResource("1_ijlxu")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 274.0
+offset_top = 144.0
+offset_right = 772.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_a83kk")
+theme_override_font_sizes/font_size = 62
+text = "Press 'R' to restart"
 
 [node name="back2" parent="." instance=ExtResource("2_p815n")]
 position = Vector2(613, 327.999)
@@ -34,7 +44,7 @@ position = Vector2(423, 577)
 scale = Vector2(9.99774, 0.606774)
 
 [node name="block13" parent="." instance=ExtResource("3_qmcgr")]
-position = Vector2(1095, 578)
+position = Vector2(1095, 559)
 scale = Vector2(17.1177, 0.606774)
 
 [node name="block14" parent="." instance=ExtResource("3_qmcgr")]
@@ -111,24 +121,12 @@ skew = 1.33232
 position = Vector2(455.5, 331.5)
 shape = SubResource("RectangleShape2D_cvguc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 1)
-offset_left = 274.0
-offset_top = 144.0
-offset_right = 418.0
-offset_bottom = 167.0
-theme_override_fonts/font = ExtResource("7_kr2ul")
-theme_override_font_sizes/font_size = 62
-text = "Press 'R' to restart"
-
 [node name="block8" parent="." instance=ExtResource("3_qmcgr")]
 position = Vector2(1113, 584)
 scale = Vector2(7.57169, 8.0591)
 
 [node name="block9" parent="." instance=ExtResource("3_qmcgr")]
-position = Vector2(962, 566)
+position = Vector2(962, 547)
 rotation = 0.785398
 scale = Vector2(0.8, 0.8)
 
@@ -197,7 +195,7 @@ position = Vector2(379, 674)
 scale = Vector2(4.88425, 4.63662)
 
 [node name="block28" parent="." instance=ExtResource("3_qmcgr")]
-position = Vector2(866, 668)
+position = Vector2(866, 649)
 scale = Vector2(5.66598, -4.30049)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

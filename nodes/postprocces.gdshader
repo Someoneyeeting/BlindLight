@@ -35,7 +35,7 @@ void fragment() {
         );
 	vec3 clr;
 	if(!web)
-		clr = texture(SCREEN_TEXTURE,SCREEN_UV + vec2(0.00096,0.00091) * sin(TIME * 100.) * rand).rgb;
+		clr = texture(SCREEN_TEXTURE,SCREEN_UV + vec2(0.0015,0.001) * sin(TIME * 100.) * rand).rgb;
 	else{
 		clr = texture(SCREEN_TEXTURE,SCREEN_UV).rgb;
 	}

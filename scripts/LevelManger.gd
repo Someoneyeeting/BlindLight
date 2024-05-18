@@ -9,8 +9,8 @@ var platformdir = false
 var levels = [
 	"res://levels/intro.tscn",
 	"res://levels/jump.tscn",
-	"res://levels/platform.tscn",
 	"res://levels/troll.tscn",
+	"res://levels/blindjump.tscn",
 	"res://levels/platform.tscn"
 ]
 
@@ -81,6 +81,7 @@ func _ready() -> void:
 	preload("res://levels/intro.tscn")
 	preload("res://levels/jump.tscn")
 	preload("res://levels/parkour.tscn")
+	preload("res://levels/blindjump.tscn")
 	preload("res://levels/troll.tscn")
 	preload("res://levels/platform.tscn")
 

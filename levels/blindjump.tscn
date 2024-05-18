@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://db6lsyy0oo73j"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_fohgk"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_ndmoq"]
+[ext_resource type="PackedScene" uid="uid://cy35xwox04vo4" path="res://nodes/invis.tscn" id="3_o13yb"]
+[ext_resource type="PackedScene" uid="uid://bsejhuhyw0cqr" path="res://nodes/player.tscn" id="4_cphnu"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="5_0tcn3"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="6_cywna"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="7_tw1xk"]
+
+[node name="blindjump" type="Node2D"]
+position = Vector2(-68, -115)
+
+[node name="back2" parent="." instance=ExtResource("1_fohgk")]
+position = Vector2(733, 458)
+
+[node name="block" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(131, 807)
+scale = Vector2(9.11379, 6.51565)
+
+[node name="block2" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(1319, 807)
+scale = Vector2(9.11379, 6.51565)
+
+[node name="invis" parent="." instance=ExtResource("3_o13yb")]
+position = Vector2(408, 724)
+
+[node name="invis2" parent="." instance=ExtResource("3_o13yb")]
+position = Vector2(677, 724)
+
+[node name="invis3" parent="." instance=ExtResource("3_o13yb")]
+position = Vector2(933, 724)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 138.0
+offset_top = 618.0
+offset_right = 599.0
+offset_bottom = 692.0
+theme_override_fonts/font = ExtResource("5_0tcn3")
+theme_override_font_sizes/font_size = 38
+text = "off the light and take the flight"
+
+[node name="Player" parent="." instance=ExtResource("4_cphnu")]
+position = Vector2(189, 623)
+
+[node name="block3" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(67, 402)
+scale = Vector2(1, 15.32)
+
+[node name="block4" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(1348, 402)
+scale = Vector2(1, 15.32)
+
+[node name="block5" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(708, 115)
+rotation = -1.5708
+scale = Vector2(1, 33.36)
+
+[node name="block6" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(87, 135)
+rotation = 0.785398
+
+[node name="block7" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(87, 677)
+rotation = 0.785398
+
+[node name="block8" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(1204, 135)
+rotation = 0.785398
+
+[node name="block9" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(1323, 649)
+scale = Vector2(1.75132, 3.40892)
+
+[node name="Switch" parent="." instance=ExtResource("6_cywna")]
+position = Vector2(1278, 634)
+
+[node name="block10" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(1329, 549)
+rotation = 0.523599
+scale = Vector2(1, 2.4)
+
+[node name="block11" parent="." instance=ExtResource("2_ndmoq")]
+position = Vector2(1307, 211)
+scale = Vector2(5.16001, 16.32)
+
+[node name="flashlight" parent="." instance=ExtResource("7_tw1xk")]
+position = Vector2(1255, 537.875)
+rotation = 1.5708
