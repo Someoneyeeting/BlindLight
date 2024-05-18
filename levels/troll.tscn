@@ -108,6 +108,7 @@ position = Vector2(15.3846, 20.8677)
 rotation = -1.45156
 scale = Vector2(0.91449, 0.914501)
 skew = 1.33232
+collision_layer = 0
 
 [node name="block26" parent="trap" instance=ExtResource("3_qmcgr")]
 position = Vector2(-15.9615, 20.866)

@@ -32,12 +32,8 @@ void fragment() {
             * 40.0
             )
         );
-	if(!web){
-		clr = texture(SCREEN_TEXTURE,SCREEN_UV + vec2(0.00091,0.00087) * sin(TIME * 100.) * rand).rgb;
-	}
-	else{
-		clr = texture(SCREEN_TEXTURE,SCREEN_UV).rgb;
-	}
+		
+	clr = textureLod(SCREEN_TEXTURE,SCREEN_UV + vec2(0.0008,0.00082) * sin(TIME * 100.) * rand,0.0).rgb;
 	rand /= intense;
 	rand = rand;
 	clr.rgb += vec3(rand) * clr.r;

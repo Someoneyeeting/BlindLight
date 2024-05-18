@@ -12,7 +12,7 @@ script/source = "extends Node2D
 
 func _physics_process(delta: float) -> void:
 	$\"../buttons/effects\".text = \"Toggle effects: \" + (\"on\" if LevelManger.get_node(\"./CanvasLayer/ColorRect\").visible else \"off\")
-	$\"../buttons/fullscreen\".text = \"Fullscreen: \" + (\"on\" if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN else \"off\")
+	$\"../buttons/fullscreen\".text = \"Fullscreen: \" + (\"off\" if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED else \"on\")
 
 
 
@@ -24,6 +24,13 @@ func _on_effects_press() -> void:
 
 func _on_back_press() -> void:
 	owner.manger.close_current()
+
+
+func _on_fullscreen_press() -> void:
+	if(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 "
 
 [node name="Settings" type="Node2D" node_paths=PackedStringArray("buttons")]
@@ -58,4 +65,5 @@ parentmenu = NodePath("../..")
 text = "back"
 
 [connection signal="Press" from="buttons/effects" to="eventhandler" method="_on_effects_press"]
+[connection signal="Press" from="buttons/fullscreen" to="eventhandler" method="_on_fullscreen_press"]
 [connection signal="Press" from="buttons/back" to="eventhandler" method="_on_back_press"]

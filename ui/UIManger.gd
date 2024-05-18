@@ -4,7 +4,8 @@ class_name UIManger
 var curmenu
 var menus = {
 	"main" : preload("res://ui/main_menu.tscn"),
-	"settings" : preload("res://ui/settings.tscn")
+	"settings" : preload("res://ui/settings.tscn"),
+	"quit" : preload("res://ui/quitgame.tscn")
 }
 @onready var initmenu := "main"
 

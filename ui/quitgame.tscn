@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnpuvxrpbbi7y"]
+
+[ext_resource type="Script" path="res://ui/UIMenu.gd" id="1_h8vi7"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="2_l0y7r"]
+[ext_resource type="PackedScene" uid="uid://5mfkfjv1f073" path="res://ui/button.tscn" id="3_3t0ii"]
+
+[sub_resource type="GDScript" id="GDScript_e8bbl"]
+resource_name = "events"
+script/source = "extends Node2D
+
+
+
+
+
+func _on_yes_press() -> void:
+	get_tree().quit()
+
+
+func _on_no_press() -> void:
+	owner.manger.close_current()
+"
+
+[node name="quitgame" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_h8vi7")
+buttons = NodePath("buttons")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 444.0
+offset_top = 179.0
+offset_right = 826.0
+offset_bottom = 271.0
+theme_override_fonts/font = ExtResource("2_l0y7r")
+theme_override_font_sizes/font_size = 83
+text = "Quit Game?"
+
+[node name="events" type="Node2D" parent="."]
+script = SubResource("GDScript_e8bbl")
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="no" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_3t0ii")]
+position = Vector2(354, 438)
+parentmenu = NodePath("../..")
+text = "no"
+
+[node name="yes" parent="buttons" node_paths=PackedStringArray("parentmenu") instance=ExtResource("3_3t0ii")]
+position = Vector2(785, 437)
+parentmenu = NodePath("../..")
+text = "yes"
+
+[connection signal="Press" from="buttons/no" to="events" method="_on_no_press"]
+[connection signal="Press" from="buttons/yes" to="events" method="_on_yes_press"]

@@ -3,12 +3,13 @@ extends Node
 
 signal switchon
 signal restart
-var curlevel = 0
+var curlevel = -1
 var waitingnext = false
 var platformdir = false
 var levels = [
 	"res://levels/intro.tscn",
 	"res://levels/jump.tscn",
+	"res://levels/parkour.tscn",
 	"res://levels/troll.tscn",
 	"res://levels/blindjump.tscn",
 	"res://levels/platform.tscn",
@@ -88,14 +89,14 @@ func _ready() -> void:
 	switchon.connect(_switch_on)
 	restart.connect(reload_level)
 	$noise.stream_paused = true
-	$CanvasLayer/ColorRect.material.set_shader_parameter("web","web" in OS.get_name().to_lower())
-	preload("res://levels/intro.tscn")
+	#$CanvasLayer/ColorRect.material.set_shader_parameter("web","web" in OS.get_name().to_lower())
 	preload("res://levels/jump.tscn")
 	preload("res://levels/parkour.tscn")
 	preload("res://levels/blindjump.tscn")
 	preload("res://levels/troll.tscn")
 	preload("res://levels/platform.tscn")
 	preload("res://levels/complex.tscn")
+	preload("res://levels/intro.tscn")
 
 
 func _on_restart_timeout() -> void:

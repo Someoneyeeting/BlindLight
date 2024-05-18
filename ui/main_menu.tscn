@@ -11,11 +11,15 @@ script/source = "extends Node2D
 
 
 func _on_start_press() -> void:
-	LevelManger.reload_level()
+	LevelManger.next_level()
 
 
 func _on_settings_press() -> void:
 	owner.manger.open_menu(\"settings\")
+
+
+func _on_quit_press() -> void:
+	owner.manger.open_menu(\"quit\")
 "
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("buttons")]
@@ -58,3 +62,4 @@ text = "Quit"
 
 [connection signal="Press" from="buttons/start" to="eventhandler" method="_on_start_press"]
 [connection signal="Press" from="buttons/settings" to="eventhandler" method="_on_settings_press"]
+[connection signal="Press" from="buttons/quit" to="eventhandler" method="_on_quit_press"]

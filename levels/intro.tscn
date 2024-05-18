@@ -16,7 +16,7 @@ position = Vector2(580, 832)
 scale = Vector2(36.0496, 9.81631)
 
 [node name="block2" parent="." instance=ExtResource("2_5qkaa")]
-position = Vector2(1203, -3.99997)
+position = Vector2(1208, -3.99997)
 scale = Vector2(2.82534, 22.9221)
 
 [node name="block3" parent="." instance=ExtResource("2_5qkaa")]
@@ -63,7 +63,7 @@ theme_override_font_sizes/font_size = 50
 text = "Press 'Space' to proceed"
 
 [node name="block8" parent="." instance=ExtResource("2_5qkaa")]
-position = Vector2(1146.24, 20)
+position = Vector2(1151.24, 20)
 rotation = 0.785397
 
 [node name="block9" parent="." instance=ExtResource("2_5qkaa")]

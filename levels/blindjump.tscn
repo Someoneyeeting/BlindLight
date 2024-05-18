@@ -33,13 +33,13 @@ position = Vector2(933, 724)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = 138.0
-offset_top = 618.0
-offset_right = 599.0
-offset_bottom = 692.0
+offset_left = 205.0
+offset_top = 574.0
+offset_right = 666.0
+offset_bottom = 666.0
 theme_override_fonts/font = ExtResource("5_0tcn3")
-theme_override_font_sizes/font_size = 38
-text = "off the light and take the flight"
+theme_override_font_sizes/font_size = 83
+text = "Blind jump"
 
 [node name="Player" parent="." instance=ExtResource("4_cphnu")]
 position = Vector2(189, 623)
