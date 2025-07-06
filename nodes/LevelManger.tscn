@@ -84,7 +84,7 @@ scale = Vector2(36.2225, 20.4042)
 
 [node name="noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hrbcu")
-volume_db = -42.515
+volume_db = -30.0
 pitch_scale = 0.9
 autoplay = true
 

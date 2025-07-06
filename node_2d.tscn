@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmog1lw6jgs5a"]
+
+[ext_resource type="PackedScene" uid="uid://wwhaq207tyyt" path="res://nodes/background.tscn" id="1_s0pe4"]
+[ext_resource type="PackedScene" uid="uid://duuw5j1v4etbg" path="res://nodes/block.tscn" id="2_j1vbc"]
+[ext_resource type="PackedScene" uid="uid://d33i5rmwscb16" path="res://nodes/switch.tscn" id="3_qcx8i"]
+[ext_resource type="PackedScene" uid="uid://c8f3pp5fdkspv" path="res://nodes/flashlight.tscn" id="4_4of4k"]
+[ext_resource type="FontFile" uid="uid://cmlgcklygdwk0" path="res://arapey-regular.ttf" id="5_a0xrf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="back2" parent="." instance=ExtResource("1_s0pe4")]
+position = Vector2(632, 315)
+
+[node name="block" parent="." instance=ExtResource("2_j1vbc")]
+position = Vector2(622, 728)
+scale = Vector2(34.3063, 6.06407)
+
+[node name="block2" parent="." instance=ExtResource("2_j1vbc")]
+position = Vector2(678, 565)
+scale = Vector2(1.09525, 2.60395)
+
+[node name="Switch" parent="." instance=ExtResource("3_qcx8i")]
+position = Vector2(650, 565)
+
+[node name="flashlight" parent="." instance=ExtResource("4_4of4k")]
+position = Vector2(642, 441)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
+offset_left = 462.0
+offset_top = 16.0
+offset_right = 828.0
+offset_bottom = 210.0
+theme_override_fonts/font = ExtResource("5_a0xrf")
+theme_override_font_sizes/font_size = 176
+text = "Blind"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
+offset_left = 434.0
+offset_top = 164.0
+offset_right = 800.0
+offset_bottom = 358.0
+theme_override_fonts/font = ExtResource("5_a0xrf")
+theme_override_font_sizes/font_size = 176
+text = "Light"

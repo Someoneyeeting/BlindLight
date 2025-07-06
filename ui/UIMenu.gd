@@ -38,5 +38,3 @@ func _input(event: InputEvent) -> void:
 func killyourself():
 	get_parent().remove_child(self)
 	queue_free()
-
-

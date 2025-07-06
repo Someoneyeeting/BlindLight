@@ -68,11 +68,11 @@ func _physics_process(delta: float) -> void:
 			lightrange = lerp(lightrange,lightrangemax,0.3)
 			lightintense = lerp(lightintense,lightintensemax,0.3)
 			lightbattery -= delta / 170
-			$lightbuzz.volume_db = -60
+			$lightbuzz.volume_db = -45
 		else:
 			lightrange = lerp(lightrange,lightrangemin,0.3)
 			lightintense = lerp(lightintense,lightintensemin,0.3)
-			$lightbuzz.volume_db = -70
+			$lightbuzz.volume_db = -55
 	else:
 		$lightbuzz.stop()
 	

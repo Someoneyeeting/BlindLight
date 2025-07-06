@@ -29,7 +29,6 @@ position = Vector2(99, 587)
 [node name="flashlight" parent="." instance=ExtResource("4_nbkuc")]
 position = Vector2(1203, 455)
 rotation = 1.5708
-metadata/_edit_lock_ = true
 
 [node name="Switch" parent="." instance=ExtResource("5_5vfav")]
 position = Vector2(1225, 597)
